@@ -17,7 +17,7 @@ jobs:
         run: |
           mkdir files_to_zip
           cp background.js manifest.json popup.html style.css files_to_zip/
-          cp icons/ files_to_zip/
+          cp -r icons/ files_to_zip/
           zip -r picukiswitch-v0.1.zip files_to_zip
 
       - name: Upload Artifact
