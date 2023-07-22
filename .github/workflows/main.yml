@@ -18,6 +18,7 @@ jobs:
           mkdir picukiswitch-v0.1
           cp background.js manifest.json popup.html style.css picukiswitch-v0.1/
           cp -r icons/ picukiswitch-v0.1/
+          zip -r picukiswitch-v0.1.zip picukiswitch-v0.1
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
