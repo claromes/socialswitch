@@ -5,7 +5,7 @@ Redirects Instagram URL profile to Picuki.com, an Instagram viewer.
 **This extension is not affiliated with Picuki or Instagram.**
 
 <p align="center">
-    <img src="demo.gif" width="700">
+    <img src="assets/demo.gif" width="700">
 </p>
 
 ## Installation
