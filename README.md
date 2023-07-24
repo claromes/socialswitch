@@ -1,12 +1,12 @@
+
 # Picuki Switch
+<p align="center">
+    <img src="icons/icon128.png">
+</p>
 
 Redirects Instagram URL profile to Picuki.com, an Instagram viewer.
 
 **This extension is not affiliated with Picuki or Instagram.**
-
-<p align="center">
-    <img src="assets/demo.gif" width="700">
-</p>
 
 ## Installation
 
@@ -18,4 +18,4 @@ Redirection is automatic. Access any profile on Instagram and the extension will
 
 ## Roadmap
 
-- [ ] Redirect URL photos
+- [ ] Photo URL redirection

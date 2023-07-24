@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Picuki Switch",
-    "version": "0.1",
+    "version": "0.1.1",
     "description": "Redirects Instagram profile to Picuki",
     "author": "https://claromes.gitlab.io",
     "permissions": [
