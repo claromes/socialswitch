@@ -10,7 +10,7 @@ Redirects Instagram URL profile to Picuki.com, an Instagram viewer.
 
 ## Installation
 
-The extension is currently awaiting aproval.
+[Install from Chrome Web Store](https://chrome.google.com/webstore/detail/picuki-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
 
 ## Usage
 
