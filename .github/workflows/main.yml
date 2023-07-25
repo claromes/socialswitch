@@ -13,15 +13,20 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Use Node.js 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
       - name: Zip file
         run: |
-          mkdir picukiswitch-v0.1
-          cp background.js manifest.json popup.html style.css picukiswitch-v0.1/
-          cp -r icons/ picukiswitch-v0.1/
-          zip -r picukiswitch-v0.1.zip picukiswitch-v0.1
+          mkdir picukiswitch-v0.1.1
+          cp background.js manifest.json popup.html style.css picukiswitch-v0.1.1/
+          cp -r icons/ picukiswitch-v0.1.1/
+          zip -r picukiswitch-v0.1.1.zip picukiswitch-v0.1.1
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: picukiswitch-v0.1
-          path: picukiswitch-v0.1.zip
+          name: picukiswitch-v0.1.1
+          path: picukiswitch-v0.1.1.zip
