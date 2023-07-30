@@ -19,3 +19,4 @@ Redirection is automatic. Access any profile on Instagram and the extension will
 ## Roadmap
 
 - [ ] Photo URL redirection
+- [ ] Add to Firefox Add-ons
