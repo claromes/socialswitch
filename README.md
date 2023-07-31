@@ -1,10 +1,10 @@
-
 # Picuki Switch
+
 <p align="center">
     <img src="icons/icon128.png">
 </p>
 
-Redirects Instagram URL profile to Picuki.com, an Instagram viewer.
+Redirects Instagram URL profile and tagged photos to Picuki.com, an Instagram viewer.
 
 **This extension is not affiliated with Picuki or Instagram.**
 
@@ -14,9 +14,22 @@ Redirects Instagram URL profile to Picuki.com, an Instagram viewer.
 
 ## Usage
 
-Redirection is automatic. Access any profile on Instagram and the extension will redirect to Picuki.com
+Redirection is automatic. Access any profile or tagged photos on Instagram and the extension will redirect to Picuki.com.
+
+## Covered URLs
+
+`https://instagram.com/<handle>`
+
+`https://instagram.com/<handle>/`
+
+`https://instagram.com/<handle>/?`
+
+`https://instagram.com/<handle>/tagged`
+
+`https://instagram.com/<handle>/tagged/`
 
 ## Roadmap
 
-- [ ] Photo URL redirection
+- [ ] Tags URL
 - [ ] Add to Firefox Add-ons
+- [ ] Photo URL redirection
