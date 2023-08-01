@@ -4,7 +4,7 @@
     <img src="icons/icon128.png">
 </p>
 
-Redirects Instagram URL profile and tagged photos to Picuki.com, an Instagram viewer.
+Redirects Instagram URLs to Picuki.com, an Instagram viewer.
 
 **This extension is not affiliated with Picuki or Instagram.**
 
@@ -14,7 +14,7 @@ Redirects Instagram URL profile and tagged photos to Picuki.com, an Instagram vi
 
 ## Usage
 
-Redirection is automatic. Access any profile or tagged photos on Instagram and the extension will redirect to Picuki.com.
+Redirection is automatic. Access any profile, tagged photos or explore tags on Instagram and the extension will redirect to Picuki.com.
 
 ## Covered URLs
 
