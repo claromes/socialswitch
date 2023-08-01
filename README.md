@@ -14,7 +14,7 @@ Redirects Instagram URLs to Picuki.com, an Instagram viewer.
 
 ## Usage
 
-Redirection is automatic. Access any profile, tagged photos or explore tags on Instagram and the extension will redirect to Picuki.com.
+Redirection is automatic. Access any profile, search tagged photos or tags on Instagram and the extension will redirect to Picuki.com.
 
 ## Covered URLs
 
