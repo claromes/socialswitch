@@ -28,8 +28,12 @@ Redirection is automatic. Access any profile or tagged photos on Instagram and t
 
 `https://instagram.com/<handle>/tagged/`
 
+`https://www.instagram.com/explore/tags/<tag_name>`
+
+`https://www.instagram.com/explore/tags/<tag_name>/`
+
 ## Roadmap
 
-- [ ] Tags URL
+- [x] Tags URL
 - [ ] Add to Firefox Add-ons
 - [ ] Photo URL redirection
