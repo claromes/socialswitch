@@ -22,7 +22,7 @@ Redirection is automatic. Access any profile, search tagged photos or tags on In
 
 `https://instagram.com/<handle>/`
 
-`https://instagram.com/<handle>/?`
+`https://instagram.com/<handle>/?*`
 
 `https://instagram.com/<handle>/tagged`
 
