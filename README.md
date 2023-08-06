@@ -1,5 +1,8 @@
 # Picuki Switch
 
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/elmbjjhgiifenlhffpjcjfkjmilbbfki)](https://chrome.google.com/webstore/detail/picuki-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
+
+
 <p align="center">
     <img src="icons/icon128.png">
 </p>
