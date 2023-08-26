@@ -13,13 +13,16 @@ Redirects Instagram URLs to Picuki.com, an Instagram viewer.
 
 ## Installation
 
-[Install from Chrome Web Store](https://chrome.google.com/webstore/detail/picuki-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
+- [Chrome Web Store](https://chrome.google.com/webstore/detail/picuki-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
 
 ## Usage
 
 Redirection is automatic. Access any profile, search tagged photos or tags on Instagram and the extension will redirect to Picuki.com.
 
-## Covered URLs
+
+[List of each type of URL for testing](urls.md).
+
+### Supported URLs
 
 `https://instagram.com/<handle>`
 
@@ -35,8 +38,12 @@ Redirection is automatic. Access any profile, search tagged photos or tags on In
 
 `https://www.instagram.com/explore/tags/<tag_name>/`
 
+### Unsupported URL
+
+`https://www.instagram.com/p/<short_code>`
+
 ## Roadmap
 
 - [x] Tags URL
 - [ ] Add to Firefox Add-ons
-- [ ] Photo URL redirection
+- [ ] Media URL redirection

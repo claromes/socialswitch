@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Picuki Switch",
-    "version": "0.2",
+    "version": "0.2.1",
     "description": "Redirects Instagram URLs to Picuki.com",
     "permissions": [
       "tabs"
