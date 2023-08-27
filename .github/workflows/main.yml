@@ -2,8 +2,6 @@ name: Zip File
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
   build:
@@ -21,8 +19,7 @@ jobs:
           zip -r picukiswitch-v0.3.zip picukiswitch-v0.3
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-          node-version: '16'
           name: picukiswitch-v0.3
           path: picukiswitch-v0.3.zip
