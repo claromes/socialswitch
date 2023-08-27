@@ -24,6 +24,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           node-version: '16'
-        with:
           name: picukiswitch-v0.3
           path: picukiswitch-v0.3.zip
