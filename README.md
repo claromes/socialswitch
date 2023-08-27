@@ -25,7 +25,7 @@ Redirection is automatic. Access any profile, search tagged photos or tags on In
 
 ### Demo Video
 
-[<img src="assets/thumb_picuki_demo.jpg" width="30%">](https://www.youtube.com/watch?v=H66LBDbLBKY "Demo Video on YouTube")
+[<img src="assets/picuki_thumb.jpg" width="30%">](https://www.youtube.com/watch?v=H66LBDbLBKY "Demo Video on YouTube")
 
 ### Supported URLs
 
