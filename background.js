@@ -10,8 +10,12 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
     if (regexProfile) {
       const handleProfile = tab.url.split("/")[3];
-      const redirectUrl = `${PicukiBaseUrl}/profile/${handleProfile}`;
-      chrome.tabs.update(tabId, { url: redirectUrl });
+
+      // Ignore media URL: https://www.instagram.com/p/<short_code>
+      if (handleProfile !== 'p') {
+        const redirectUrl = `${PicukiBaseUrl}/profile/${handleProfile}`;
+        chrome.tabs.update(tabId, { url: redirectUrl });
+      }
     }
 
     // https://instagram.com/<handle>/tagged
