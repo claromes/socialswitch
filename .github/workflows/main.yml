@@ -13,13 +13,13 @@ jobs:
 
       - name: Zip file
         run: |
-          mkdir picukiswitch-v0.3
-          cp background.js manifest.json picukiswitch-v0.3/
-          cp -r icons/ picukiswitch-v0.3/
-          zip -r picukiswitch-v0.3.zip picukiswitch-v0.3
+          mkdir picukiswitch-v0.3.1
+          cp background.js manifest.json picukiswitch-v0.3.1/
+          cp -r icons/ picukiswitch-v0.3.1/
+          zip -r picukiswitch-v0.3.1.zip picukiswitch-v0.3.1
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: picukiswitch-v0.3
-          path: picukiswitch-v0.3.zip
+          name: picukiswitch-v0.3.1
+          path: picukiswitch-v0.3.1.zip
