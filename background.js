@@ -51,8 +51,8 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         if (regexProfile) {
           const handleProfile = tab.url.split("/")[3];
     
-          // Ignore post, reel, TV and explore URLs
-          if (handleProfile !== 'p' && handleProfile !== 'reel'  && handleProfile !== 'tv'  && handleProfile !== 'explore') {
+          // Ignore post, story, reel, TV and explore URLs
+          if (handleProfile !== 'p' && handleProfile !== 's' && handleProfile !== 'reel'  && handleProfile !== 'tv'  && handleProfile !== 'explore') {
             let redirectUrl = `${BaseUrl}${Profile}${handleProfile}`;
             
             chrome.tabs.update(tabId, { url: redirectUrl });
@@ -88,7 +88,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         const regexTags = /^https:\/\/www\.instagram\.com\/explore\/tags\/([^/]+)/;
         const matchTags = tab.url.match(regexTags);
     
-        if (matchTags && BaseUrl.includes('picuki')) {
+        if (matchTags) {
           const tagName = matchTags[1];
           const redirectUrlTags = `${BaseUrl}/tag/${tagName}`;
     
