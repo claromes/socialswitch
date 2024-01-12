@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "lint": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin-js": "^1.5.3"
+  }
+}
