@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "IG Switch",
-  "version": "1.0",
+  "name": "Social Switch",
+  "version": "0.4",
   "description": "Redirect Instagram URLs to Picuki or Imginn",
-  "homepage_url": "https://github.com/claromes/igswitch",
+  "homepage_url": "https://github.com/claromes/socialswitch",
   "author": "Claromes",
   "permissions": [
     "storage",

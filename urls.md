@@ -16,10 +16,15 @@
 
     ---
 
+    https://www.instagram.com/p/CwX31XMMYAV
+
+    ---
+
     https://www.instagram.com/explore/tags/instagram
 
     https://www.instagram.com/explore/tags/instagram/
 
 - Unsupported
 
-    https://www.instagram.com/p/CwX31XMMYAV
+    https://www.instagram.com/s/<long_code>?story_media_id=<story_media_id>
+    https://www.instagram.com/tv/<short_code>/?igshid=<igsh_id>

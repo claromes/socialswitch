@@ -1,16 +1,15 @@
-# Picuki Switch
+# Social Switch
 
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/elmbjjhgiifenlhffpjcjfkjmilbbfki)](https://chrome.google.com/webstore/detail/picuki-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
-
 
 <p align="center">
     <img src="icons/icon128.png">
 </p>
 
-Redirects Instagram URLs to Picuki.com, an Instagram viewer.
+Redirect Instagram URLs to Picuki.com or Imginn.con, Instagram viewers.
 
 > [!NOTE]
-> This extension is not affiliated with Picuki or Instagram.
+> This extension is not affiliated with Picuki, Imginn or Instagram.
 
 ## Installation
 
@@ -18,39 +17,53 @@ Redirects Instagram URLs to Picuki.com, an Instagram viewer.
 
 ## Usage
 
-Redirection is automatic. Access any profile, search tagged photos or tags on Instagram and the extension will redirect to Picuki.com.
+Access any profile, posts, tagged posts or tags on Instagram and the extension will redirect automatically to Picuki.com or Imginn.com.
 
+Select a viewer option and enable or disable redirection through the popup.
 
-[List of each type of URL for testing](urls.md).
+<p align="center">
+    <img src="assets\popup.jpg">
+</p>
 
-### Demo Video
-
-[<img src="assets/picuki_thumb.jpg" width="30%">](https://www.youtube.com/watch?v=H66LBDbLBKY "Demo Video on YouTube")
+For photo URLs (`https://www.instagram.com/p/<short_code>`), regardless of the redirection option, the extension will redirect to Imginn.com, as this viewer uses the original photo short code. However, for tag URLs (`https://www.instagram.com/explore/tags/<tag_name>`), regardless of the redirection option, the extension will redirect to Picuki.com, as only this viewer supports tag search.
 
 ### Supported URLs
 
 `https://instagram.com/<handle>`
 
-`https://instagram.com/<handle>/`
-
-`https://instagram.com/<handle>/?*`
-
 `https://instagram.com/<handle>/tagged`
 
-`https://instagram.com/<handle>/tagged/`
+`https://www.instagram.com/p/<short_code>` *(only Imginn)*
 
-`https://www.instagram.com/explore/tags/<tag_name>`
-
-`https://www.instagram.com/explore/tags/<tag_name>/`
+`https://www.instagram.com/explore/tags/<tag_name>` *(only Picuki)*
 
 ### Unsupported URL
 
-`https://www.instagram.com/p/<short_code>`
+`https://www.instagram.com/s/<long_code>?story_media_id=<story_media_id>`
+
+`https://www.instagram.com/tv/<short_code>/?igshid=<igsh_id>`
+
+## Development
+
+$ `git clone git@github.com:claromes/socialswitch.git`
+
+$ `cd socialswitch`
+
+[List of each type of URL for testing](urls.md)
+
+### Linter:
+
+Prerequisite: Node.js
+
+$ `npm install`
+
+$ `npm run lint`
 
 ## Roadmap
 
 - [x] Tags URL
-- [ ] Add to Firefox Add-ons
-- [ ] Media URL redirection
+- [x] Post URLs
+- [ ] TikTok options
+- [ ] Firefox Add-ons
 
 *Background image of the [promotional assets](assets) by [MagicPattern](https://unsplash.com/@magicpattern) on Unsplash*
