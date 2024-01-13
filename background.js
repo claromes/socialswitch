@@ -84,6 +84,8 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         
               chrome.tabs.update(tabId, { url: redirectUrlStory });
             }
+
+            // https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fstories%2Finstagram%2F
           }
         }
     

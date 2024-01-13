@@ -42,4 +42,5 @@
 - Unsupported
 
     https://www.instagram.com/s/<long_code>?story_media_id=<story_media_id>
+    
     https://www.instagram.com/tv/<short_code>/?igshid=<igsh_id>

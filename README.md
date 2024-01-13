@@ -23,27 +23,28 @@ Select a viewer option and enable or disable redirection through the popup.
 
 <p align="center">
     <img src="assets\popup.jpg">
+    <img src="assets\popup-2.jpg">
 </p>
 
-For post URLs (`https://www.instagram.com/p/<short_code>`) and story profiles (`https://www.instagram.com/stories/<handle>`), regardless of the redirection option, the extension will redirect to Imginn.com. This viewer uses the original post short code, and it has the option to view only stories via URL. However, for tag URLs (`https://www.instagram.com/explore/tags/<tag_name>`), irrespective of the redirection option, the extension will redirect to Picuki.com, as only this viewer supports tag search.
+For post URLs (`instagram.com/p/<short_code>`) and story profiles (`instagram.com/stories/<handle>`), regardless of the redirection option, the extension will redirect to Imginn.com. This viewer uses the original post short code, and it has the option to view only stories via URL. However, for tag URLs (`instagram.com/explore/tags/<tag_name>`), irrespective of the redirection option, the extension will redirect to Picuki.com, as only this viewer supports tag search.
 
 ### Supported URLs
 
-`https://instagram.com/<handle>`
+`instagram.com/<handle>`
 
-`https://instagram.com/<handle>/tagged`
+`instagram.com/<handle>/tagged`
 
-`https://www.instagram.com/p/<short_code>` *(only Imginn)*
+`instagram.com/stories/<handle>` *(only Imginn)*
 
-`https://www.instagram.com/stories/<handle>` *(only Imginn)*
+`instagram.com/p/<short_code>` *(only Imginn)*
 
-`https://www.instagram.com/explore/tags/<tag_name>` *(only Picuki)*
+`instagram.com/explore/tags/<tag_name>` *(only Picuki)*
 
-### Unsupported URL
+### Unsupported URLs
 
-`https://www.instagram.com/s/<long_code>?story_media_id=<story_media_id>` *(story direct link)*
+`instagram.com/s/<long_code>?story_media_id=<story_media_id>` *(story direct link)*
 
-`https://www.instagram.com/tv/<short_code>/?igshid=<igsh_id>`
+`instagram.com/tv/<short_code>/?igshid=<igsh_id>`
 
 ## Development
 
