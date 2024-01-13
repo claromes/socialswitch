@@ -18,6 +18,8 @@
 
 - https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Finstagram%2Ftagged%2F%3F__coig_login%3D1
 
+- https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Finstagram%2Ftagged%2F%3Fhl%3Den%26__coig_login%3D1
+
 ## Post/Reel
 
 - https://www.instagram.com/p/CwX31XMMYAV
