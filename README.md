@@ -38,6 +38,8 @@ For post URLs (`instagram.com/p/<short_code>`) and story profiles (`instagram.co
 
 `instagram.com/p/<short_code>` *(only Imginn)*
 
+`instagram.com/<handle>/p/<short_code>` *(only Imginn)*
+
 `instagram.com/explore/tags/<tag_name>` *(only Picuki)*
 
 ### Unsupported URLs
