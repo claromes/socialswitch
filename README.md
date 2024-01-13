@@ -8,9 +8,6 @@
 
 Redirect Instagram URLs to Picuki.com or Imginn.con, Instagram viewers.
 
-> [!NOTE]
-> This extension is not affiliated with Picuki, Imginn or Instagram.
-
 ## Installation
 
 - [Chrome Web Store](https://chrome.google.com/webstore/detail/picuki-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
@@ -65,6 +62,14 @@ $ `cd socialswitch`
 - [x] Tags URL
 - [x] Post URLs
 - [ ] TikTok options
+  - [ ] user
+  - [ ] video
 - [ ] Firefox Add-ons
 
-*Background image of the [promotional assets](assets) by [MagicPattern](https://unsplash.com/@magicpattern) on Unsplash*
+## Credits
+
+- [Claromes](https://claromes.com), author and maintainer
+- [MagicPattern](https://unsplash.com/@magicpattern), background image of the [promotional assets](assets)
+
+> [!NOTE]
+> This extension is not affiliated with Picuki, Imginn or Instagram.
