@@ -40,13 +40,17 @@ For post URLs (`instagram.com/p/<short_code>`) and story profiles (`instagram.co
 
 `instagram.com/<handle>/p/<short_code>` *(only Imginn)*
 
+`instagram.com/reel/<short_code>` *(only Imginn)*
+
+`instagram.com/<handle>/reel/<short_code>` *(only Imginn)*
+
 `instagram.com/explore/tags/<tag_name>` *(only Picuki)*
 
 ### Unsupported URLs
 
-`instagram.com/s/<long_code>?story_media_id=<story_media_id>` *(story direct link)*
+`instagram.com/s/<long_code>?story_media_id=<story_media_id>` *(story URL)*
 
-`instagram.com/tv/<short_code>/?igshid=<igsh_id>`
+`instagram.com/tv/<short_code>/?igshid=<igsh_id>` *(IGTV URL)*
 
 ## Development
 
