@@ -35,7 +35,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         // https://instagram.com/<handle>
         // https://instagram.com/<handle>/
         // https://instagram.com/<handle>/?hl=en
-        const regexProfile = /^https:\/\/instagram\.com\/([^/?]+)\/?\??.*$/;
+        const regexHandle = /^https:\/\/instagram\.com\/([^/?]+)\/?\??.*$/;
     
         let Profile;
         let ProfileTagged;
@@ -48,33 +48,47 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           ProfileTagged = '/tagged/';
         }
     
-        if (regexProfile) {
+        if (regexHandle) {
           const handleProfile = tab.url.split("/")[3];
     
-          // Ignore post, story, reel, TV and explore URLs
-          if (handleProfile !== 'p' && handleProfile !== 's' && handleProfile !== 'reel'  && handleProfile !== 'tv'  && handleProfile !== 'explore') {
+          // Ignore post, stories, reel, TV and explore URLs
+          if (handleProfile !== 'p' && handleProfile !== 'stories' && handleProfile !== 's' && handleProfile !== 'reel'  && handleProfile !== 'tv'  && handleProfile !== 'explore') {
             let redirectUrl = `${baseUrl}${Profile}${handleProfile}`;
             
             chrome.tabs.update(tabId, { url: redirectUrl });
           } else if (handleProfile === 'p') {
             //Only Imginn
             //https://www.instagram.com/p/<short_code>
-            //https://www.instagram.com/p/<short_code>/
+            //https://www.instagram.com/p/<short_code>/*
             const regexPost = /https:\/\/www\.instagram\.com\/p\/([A-Za-z0-9_-]+)\//;
             const matchPost = tab.url.match(regexPost);
         
             if (matchPost) {
-              baseUrl = 'https://www.imginn.com'
+              baseUrl = 'https://www.imginn.com';
               const postCode = matchPost[1];
               const redirectUrlPost = `${baseUrl}/p/${postCode}`;
         
               chrome.tabs.update(tabId, { url: redirectUrlPost });
             }
+          } else if (handleProfile === 'stories') {
+            //Only Imginn
+            //https://www.instagram.com/stories/<handle>
+            //https://www.instagram.com/stories/<handle>/*
+            const regexStory = /https:\/\/www\.instagram\.com\/stories\/([A-Za-z0-9._]+)/;
+            const matchStory = tab.url.match(regexStory);
+        
+            if (matchStory) {
+              baseUrl = 'https://www.imginn.com';
+              const handleStory = matchStory[1];
+              const redirectUrlStory = `${baseUrl}/stories/${handleStory}`;
+        
+              chrome.tabs.update(tabId, { url: redirectUrlStory });
+            }
           }
         }
     
         // https://instagram.com/<handle>/tagged
-        // https://instagram.com/<handle>/tagged/
+        // https://instagram.com/<handle>/tagged/*
         const regexTagged = /^https:\/\/www\.instagram\.com\/([^/]+)\/tagged\/?\??$/;
         const matchTagged = tab.url.match(regexTagged);
     
@@ -98,12 +112,12 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     
         //Only Picuki
         // https://www.instagram.com/explore/tags/<tag_name>
-        // https://www.instagram.com/explore/tags/<tag_name>/
+        // https://www.instagram.com/explore/tags/<tag_name>/*
         const regexTags = /^https:\/\/www\.instagram\.com\/explore\/tags\/([^/]+)/;
         const matchTags = tab.url.match(regexTags);
     
         if (matchTags) {
-          baseUrl = 'https://www.picuki.com'
+          baseUrl = 'https://www.picuki.com';
           const tagName = matchTags[1];
           const redirectUrlTags = `${baseUrl}/tag/${tagName}`;
     

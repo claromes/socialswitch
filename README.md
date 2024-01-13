@@ -17,7 +17,7 @@ Redirect Instagram URLs to Picuki.com or Imginn.con, Instagram viewers.
 
 ## Usage
 
-Access any profile, posts, tagged posts or tags on Instagram and the extension will redirect automatically to Picuki.com or Imginn.com.
+Access any profile, posts, tagged posts, stories profile or tags on Instagram and the extension will redirect automatically to Picuki.com or Imginn.com.
 
 Select a viewer option and enable or disable redirection through the popup.
 
@@ -25,7 +25,7 @@ Select a viewer option and enable or disable redirection through the popup.
     <img src="assets\popup.jpg">
 </p>
 
-For photo URLs (`https://www.instagram.com/p/<short_code>`), regardless of the redirection option, the extension will redirect to Imginn.com, as this viewer uses the original photo short code. However, for tag URLs (`https://www.instagram.com/explore/tags/<tag_name>`), regardless of the redirection option, the extension will redirect to Picuki.com, as only this viewer supports tag search.
+For post URLs (`https://www.instagram.com/p/<short_code>`) and story profiles (`https://www.instagram.com/stories/<handle>`), regardless of the redirection option, the extension will redirect to Imginn.com. This viewer uses the original post short code, and it has the option to view only stories via URL. However, for tag URLs (`https://www.instagram.com/explore/tags/<tag_name>`), irrespective of the redirection option, the extension will redirect to Picuki.com, as only this viewer supports tag search.
 
 ### Supported URLs
 
@@ -35,11 +35,13 @@ For photo URLs (`https://www.instagram.com/p/<short_code>`), regardless of the r
 
 `https://www.instagram.com/p/<short_code>` *(only Imginn)*
 
+`https://www.instagram.com/stories/<handle>` *(only Imginn)*
+
 `https://www.instagram.com/explore/tags/<tag_name>` *(only Picuki)*
 
 ### Unsupported URL
 
-`https://www.instagram.com/s/<long_code>?story_media_id=<story_media_id>`
+`https://www.instagram.com/s/<long_code>?story_media_id=<story_media_id>` *(story direct link)*
 
 `https://www.instagram.com/tv/<short_code>/?igshid=<igsh_id>`
 
