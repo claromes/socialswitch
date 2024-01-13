@@ -60,14 +60,6 @@ $ `cd socialswitch`
 
 [List of each type of URL for testing](urls.md)
 
-### Linter:
-
-Prerequisite: Node.js
-
-$ `npm install`
-
-$ `npm run lint`
-
 ## Roadmap
 
 - [x] Tags URL

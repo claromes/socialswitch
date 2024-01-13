@@ -1,0 +1,32 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+
+[*.js]
+insert_final_newline = true
+end_of_line = lf
+indent_size = 2
+quote_type = single
+trim_trailing_whitespace = true
+
+[*.css]
+insert_final_newline = true
+end_of_line = lf
+indent_size = 2
+trim_trailing_whitespace = true
+
+[*.html]
+insert_final_newline = true
+end_of_line = lf
+indent_size = 2
+trim_trailing_whitespace = true
+
+[*.json]
+insert_final_newline = true
+end_of_line = lf
+indent_size = 2
+trim_trailing_whitespace = true

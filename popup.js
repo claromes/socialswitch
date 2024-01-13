@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     event.preventDefault();
     supportedElement.style.display = (supportedElement.style.display === 'none' || supportedElement.style.display === '') ? 'block' : 'none';
   });
-    
+
   // Change switch
   switchElement.addEventListener('change', handleSwitchChange);
 
@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
     option.addEventListener('change', handleOptionChange);
   });
 
-  // Storage switch  
-  chrome.storage.sync.get('checkboxState', function(data) {    
+  // Storage switch
+  chrome.storage.sync.get('checkboxState', function(data) {
     if (data.checkboxState) {
       switchElement.checked = data.checkboxState;
     }
@@ -28,18 +28,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   switchElement.addEventListener('change', function() {
     chrome.storage.sync.set({ 'checkboxState': switchElement.checked });
-  });        
+  });
 
-  // Storage redirection 
+  // Storage redirection
   chrome.storage.sync.get({ selectedOption: 'picuki' }, function(data) {
     const selectedOption = data.selectedOption;
     document.querySelector(`input[value="${selectedOption}"]`).checked = true;
   });
-    
+
   radioOptions.forEach(function(option) {
     option.addEventListener('change', function() {
       const selectedOption = document.querySelector('input[name="option"]:checked').value;
-    
+
       chrome.storage.sync.set({ selectedOption: selectedOption });
     });
   });
@@ -50,7 +50,7 @@ function handleSwitchChange() {
   const switchState = document.getElementById('optionSwitch').checked;
   chrome.runtime.sendMessage({ switchState });
 }
-  
+
 function handleOptionChange() {
   const selectedOption = document.querySelector('input[name="option"]:checked').value;
   chrome.runtime.sendMessage({ selectedOption });
