@@ -17,12 +17,27 @@
     ---
 
     https://www.instagram.com/p/CwX31XMMYAV
+    
+    https://www.instagram.com/p/CwX31XMMYAV/
+
+    https://www.instagram.com/p/CwX31XMMYAV/hl=en
+
+    ---
+
+    https://www.instagram.com/stories/instagram
+
+    https://www.instagram.com/stories/instagram/
+
+    https://www.instagram.com/stories/instagram/?hl=en
 
     ---
 
     https://www.instagram.com/explore/tags/instagram
 
     https://www.instagram.com/explore/tags/instagram/
+
+    https://www.instagram.com/explore/tags/instagram/?hl=en
+
 
 - Unsupported
 

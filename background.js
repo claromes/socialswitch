@@ -23,12 +23,12 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     chrome.storage.local.set({ switchState: switchState, selectedOption: selectedOption });
 
     if (!switchState) {
-      let BaseUrl;
+      let baseUrl;
 
       if (selectedOption === 'picuki') {
-        BaseUrl = 'https://www.picuki.com';
+        baseUrl = 'https://www.picuki.com';
       } else if (selectedOption === 'imginn') {
-        BaseUrl = 'https://www.imginn.com';
+        baseUrl = 'https://www.imginn.com';
       }
     
       if (tab.url && tab.url.startsWith('https://www.instagram.com/')) {
@@ -40,10 +40,10 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         let Profile;
         let ProfileTagged;
     
-        if (BaseUrl.includes('picuki')) {
+        if (baseUrl.includes('picuki')) {
           Profile = '/profile/';
           ProfileTagged = '/profile-tagged/';
-        } else if (BaseUrl.includes('imginn')) {
+        } else if (baseUrl.includes('imginn')) {
           Profile = '/';
           ProfileTagged = '/tagged/';
         }
@@ -53,9 +53,23 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     
           // Ignore post, story, reel, TV and explore URLs
           if (handleProfile !== 'p' && handleProfile !== 's' && handleProfile !== 'reel'  && handleProfile !== 'tv'  && handleProfile !== 'explore') {
-            let redirectUrl = `${BaseUrl}${Profile}${handleProfile}`;
+            let redirectUrl = `${baseUrl}${Profile}${handleProfile}`;
             
             chrome.tabs.update(tabId, { url: redirectUrl });
+          } else if (handleProfile === 'p') {
+            //Only Imginn
+            //https://www.instagram.com/p/<short_code>
+            //https://www.instagram.com/p/<short_code>/
+            const regexPost = /https:\/\/www\.instagram\.com\/p\/([A-Za-z0-9_-]+)\//;
+            const matchPost = tab.url.match(regexPost);
+        
+            if (matchPost) {
+              baseUrl = 'https://www.imginn.com'
+              const postCode = matchPost[1];
+              const redirectUrlPost = `${baseUrl}/p/${postCode}`;
+        
+              chrome.tabs.update(tabId, { url: redirectUrlPost });
+            }
           }
         }
     
@@ -66,7 +80,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     
         if (matchTagged) {
           const handleTagged = matchTagged[1];
-          const redirectUrlTagged = `${BaseUrl}${ProfileTagged}${handleTagged}`;
+          const redirectUrlTagged = `${baseUrl}${ProfileTagged}${handleTagged}`;
     
           chrome.tabs.update(tabId, { url: redirectUrlTagged });
         }
@@ -77,7 +91,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     
         if (matchTaggedLogin) {
           const handleTaggedLogin = matchTaggedLogin[1];
-          const redirectUrlTaggedLogin = `${BaseUrl}${ProfileTagged}${handleTaggedLogin}`;
+          const redirectUrlTaggedLogin = `${baseUrl}${ProfileTagged}${handleTaggedLogin}`;
     
           chrome.tabs.update(tabId, { url: redirectUrlTaggedLogin });
         }
@@ -89,23 +103,11 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         const matchTags = tab.url.match(regexTags);
     
         if (matchTags) {
+          baseUrl = 'https://www.picuki.com'
           const tagName = matchTags[1];
-          const redirectUrlTags = `${BaseUrl}/tag/${tagName}`;
+          const redirectUrlTags = `${baseUrl}/tag/${tagName}`;
     
           chrome.tabs.update(tabId, { url: redirectUrlTags });
-        }
-    
-        //Only Imginn
-        //https://www.instagram.com/p/<short_code>
-        //https://www.instagram.com/p/<short_code>/
-        const regexPost = /^https:\/\/www\.instagram\.com\/([^/]+)\/p\/?\??$/;
-        const matchPost = tab.url.match(regexPost);
-    
-        if (matchPost) {
-          const postCode = matchPost[1];
-          const redirectUrlPost = `${BaseUrl}/p/${postCode}`;
-    
-          chrome.tabs.update(tabId, { url: redirectUrlPost });
         }
       }
     }
