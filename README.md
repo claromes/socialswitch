@@ -23,7 +23,7 @@ Select a viewer option and enable or disable redirection through the popup.
     <img src="assets\popup-2.jpg">
 </p>
 
-For post URLs (`instagram.com/p/<short_code>`) and story profiles (`instagram.com/stories/<handle>`), regardless of the redirection option, the extension will redirect to Imginn.com. This viewer uses the original post short code, and it has the option to view only stories via URL. However, for tag URLs (`instagram.com/explore/tags/<tag_name>`), irrespective of the redirection option, the extension will redirect to Picuki.com, as only this viewer supports tag search.
+For post URLs (`instagram.com/p/<short_code>`) and stories profiles (`instagram.com/stories/<handle>`), regardless of the redirection option, the extension will redirect to Imginn.com. This viewer uses the original post short code, and it has the option to view only stories via URL. However, for tag URLs (`instagram.com/explore/tags/<tag_name>`), irrespective of the redirection option, the extension will redirect to Picuki.com, as only this viewer supports tag search.
 
 ### Supported URLs
 
