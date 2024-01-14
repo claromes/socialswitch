@@ -1,0 +1,83 @@
+body {
+  color: #333;
+  min-width: 150px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.popup-container {
+  width: 190px;
+  margin: 15px 0;
+}
+
+.switch-label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.switch-text {
+  margin-top: 3px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 20px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ff5919;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  top: 2px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+input:checked+.slider {
+  background: #d4d4d4;
+}
+
+input:checked+.slider:before {
+  transform: translateX(36px);
+}
+
+.option {
+  margin: 5px 2px 0 0;
+  accent-color: #ff5919;
+  vertical-align: bottom;
+}
+
+.option-text{
+  padding-right: 20px;
+}
+
+#toggleLink, .supported {
+  font-size: 10px;
+  color: rgb(158, 158, 158);
+}
+
+.supported {
+  display: none;
+}
+
+#toggleLink:visited {
+  color: inherit;
+}
+
+#toggleLink:hover {
+  color: rgb(97, 97, 97);
+}

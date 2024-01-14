@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Switch</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <div class="switch-label">
+            <span class="switch-text">Viewer</span>
+            <label class="switch">
+                <input type="checkbox" id="optionSwitch">
+                <span class="slider"></span>
+            </label>
+            <span class="switch-text">Instagram</span>
+        </div>
+        <p>Viewer options:</p>
+        <label>
+            <input class="option" type="radio" name="option" value="picuki" checked>
+            <span class="option-text">Picuki</span>
+        </label>
+        <label>
+            <input class="option" type="radio" name="option" value="imginn">
+            <span class="option-text">Imginn</span>
+        </label>
+        <p>
+          <a id="toggleLink" href="#">Supported URLs</a>
+          <span class="supported">
+              <br>
+              instagram.com/handle
+              <br>
+              instagram.com/handle/tagged
+              <br>
+              instagram.com/stories/handle (I)
+              <br>
+              instagram.com/p/short_code (I)
+              <br>
+              instagram.com/handle/p/short_code (I)
+              <br>
+              instagram.com/reel/short_code (I)
+              <br>
+              instagram.com/handle/reel/short_code (I)
+              <br>
+              instagram.com/explore/tags/tag_name (P)
+              <br>
+              <br>
+              (I) only Imginn · (P) only Picuki ·  Some URLs may be redirected using a specific viewer regardless of the selected option
+          </span>
+        </p>
+    </p>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
