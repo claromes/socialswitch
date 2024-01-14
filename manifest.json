@@ -7,10 +7,7 @@
   "author": "Claromes",
   "permissions": [
     "storage",
-    "activeTab",
-    "tabs",
-    "webNavigation",
-    "webRequest"
+    "tabs"
   ],
   "action": {
     "default_popup": "popup.html",
