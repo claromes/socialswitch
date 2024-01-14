@@ -6,7 +6,9 @@
     <img src="icons/icon128.png">
 </p>
 
-Redirect Instagram URLs to Picuki.com or Imginn.con, Instagram viewers.
+Redirect Instagram URLs to anonymous viewers.
+
+Access any profile, posts, tagged posts, stories profile or tags on Instagram and the extension will redirect automatically to Picuki.com or Imginn.com.
 
 ## Installation
 
@@ -14,16 +16,13 @@ Redirect Instagram URLs to Picuki.com or Imginn.con, Instagram viewers.
 
 ## Usage
 
-Access any profile, posts, tagged posts, stories profile or tags on Instagram and the extension will redirect automatically to Picuki.com or Imginn.com.
-
 Select a viewer option and enable or disable redirection through the popup.
 
 <p align="center">
-    <img src="assets\popup.jpg">
-    <img src="assets\popup-2.jpg">
+    <img src="assets\popup.png">
 </p>
 
-For post URLs (`instagram.com/p/<short_code>`) and stories profiles (`instagram.com/stories/<handle>`), regardless of the redirection option, the extension will redirect to Imginn.com. This viewer uses the original post short code, and it has the option to view only stories via URL. However, for tag URLs (`instagram.com/explore/tags/<tag_name>`), irrespective of the redirection option, the extension will redirect to Picuki.com, as only this viewer supports tag search.
+For post URLs (`instagram.com/p/<short_code>`) and stories profile URLs (`instagram.com/stories/<handle>`), regardless of the redirection option, the extension will redirect to Imginn.com. This viewer uses the original post short code, and it has the option to view only stories via URL. However, for tag URLs (`instagram.com/explore/tags/<tag_name>`), irrespective of the redirection option, the extension will redirect to Picuki.com, as only this viewer supports tag search.
 
 ### Supported URLs
 
@@ -62,8 +61,8 @@ $ `cd socialswitch`
 - [x] Tags URL
 - [x] Post URLs
 - [ ] TikTok options
-  - [ ] user
-  - [ ] video
+  - [ ] User
+  - [ ] Video
 - [ ] Firefox Add-ons
 
 ## Credits
@@ -72,4 +71,4 @@ $ `cd socialswitch`
 - [MagicPattern](https://unsplash.com/@magicpattern), background image of the [promotional assets](assets)
 
 > [!NOTE]
-> This extension is not affiliated with Picuki, Imginn or Instagram.
+> This extension is not affiliated with Instagram, Picuki or Imginn.
