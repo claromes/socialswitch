@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const switchElement = document.getElementById('optionSwitch');
+  const switchElementIG = document.getElementById('optionSwitchIG');
+  const switchElementTT = document.getElementById('optionSwitchTT');
   const radioOptions = document.querySelectorAll('.option');
 
   // Open Supported URLs link
@@ -9,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Change switch
-  switchElement.addEventListener('change', handleSwitchChange);
+  switchElementIG.addEventListener('change', handleSwitchChangeIG);
+  switchElementTT.addEventListener('change', handleSwitchChangeTT);
 
   // Change redirection
   radioOptions.forEach(option => {
@@ -17,14 +19,24 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Storage switch
-  chrome.storage.sync.get('checkboxState', function(data) {
-    if (data.checkboxState) {
-      switchElement.checked = data.checkboxState;
+  chrome.storage.sync.get('checkboxStateIG', function(data) {
+    if (data.checkboxStateIG) {
+      switchElementIG.checked = data.checkboxStateIG;
     }
   });
 
-  switchElement.addEventListener('change', function() {
-    chrome.storage.sync.set({ 'checkboxState': switchElement.checked });
+  chrome.storage.sync.get('checkboxStateTT', function(data) {
+    if (data.checkboxStateTT) {
+      switchElementTT.checked = data.checkboxStateTT;
+    }
+  });
+
+  switchElementIG.addEventListener('change', function() {
+    chrome.storage.sync.set({ 'checkboxStateIG': switchElementIG.checked });
+  });
+
+  switchElementTT.addEventListener('change', function() {
+    chrome.storage.sync.set({ 'checkboxStateTT': switchElementTT.checked });
   });
 
   // Storage redirection
@@ -43,9 +55,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Communication with the background.js file
-function handleSwitchChange() {
-  const switchState = document.getElementById('optionSwitch').checked;
-  chrome.runtime.sendMessage({ switchState });
+function handleSwitchChangeIG() {
+  const switchStateIG = document.getElementById('optionSwitchIG').checked;
+  chrome.runtime.sendMessage({ switchStateIG });
+}
+
+function handleSwitchChangeTT() {
+  const switchStateTT = document.getElementById('optionSwitchTT').checked;
+  chrome.runtime.sendMessage({ switchStateTT });
 }
 
 function handleOptionChange() {

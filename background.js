@@ -1,28 +1,42 @@
 // States
-function getMessages(request) {
-  let switchState = request.switchState;
+function getMessagesIG(request) {
+  let switchStateIG = request.switchStateIG;
   let selectedOption = request.selectedOption;
 
-  chrome.storage.local.set({ switchState: switchState, selectedOption: selectedOption });
+  chrome.storage.local.set({ switchStateIG: switchStateIG, selectedOption: selectedOption });
 
-  return [switchState, selectedOption];
+  return [switchStateIG, selectedOption];
+}
+
+function getMessagesTT(request) {
+  let switchStateTT = request.switchStateTT;
+
+  chrome.storage.local.set({ switchStateTT: switchStateTT });
+
+  return [switchStateTT];
 }
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  const [switchState, selectedOption] = getMessages(request);
-  sendResponse({ switchState: switchState, selectedOption: selectedOption });
+  const [switchStateIG, selectedOption] = getMessagesIG(request);
+  sendResponse({ switchStateIG: switchStateIG, selectedOption: selectedOption });
+});
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+  const [switchStateTT] = getMessagesTT(request);
+  sendResponse({ switchStateTT: switchStateTT });
 });
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+  // -- Instagram --
   // Get storage option
-  chrome.storage.local.get(['switchState', 'selectedOption'], function(result) {
-    switchState = result.switchState || false;
+  chrome.storage.local.get(['switchStateIG', 'selectedOption'], function(result) {
+    switchStateIG = result.switchStateIG || false;
     selectedOption = result.selectedOption || 'picuki';
 
     // Set storage option
-    chrome.storage.local.set({ switchState: switchState, selectedOption: selectedOption });
+    chrome.storage.local.set({ switchStateIG: switchStateIG, selectedOption: selectedOption });
 
-    if (!switchState) {
+    if (!switchStateIG) {
       let baseUrl;
 
       if (selectedOption === 'picuki') {
@@ -163,6 +177,30 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
           chrome.tabs.update(tabId, { url: redirectUrlTags });
         }
+      }
+    }
+  });
+
+  // -- TikTok --
+  // Get storage option
+  chrome.storage.local.get(['switchStateTT'], function(result) {
+    switchStateTT = result.switchStateTT || false;
+
+    // Set storage option
+    chrome.storage.local.set({ switchStateTT: switchStateTT });
+
+    if (!switchStateTT) {
+      const baseUrlTT = 'https://urlebird.com/';
+
+      // https://www.tiktok.com/*
+      if (tab.url && tab.url.startsWith('https://www.tiktok.com/')) {
+
+        const handleProfileWithAt = tab.url.split("/")[3];
+        const handleProfileTT = handleProfileWithAt.replace(/^@/, '');
+
+        let redirectTTUrl = `${baseUrlTT}user/${handleProfileTT}/`;
+
+        chrome.tabs.update(tabId, { url: redirectTTUrl });
       }
     }
   });
