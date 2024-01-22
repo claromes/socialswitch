@@ -8,48 +8,39 @@
 </head>
 <body>
     <div class="popup-container">
-        <div class="switch-label">
-            <span class="switch-text">Viewer</span>
-            <label class="switch">
-                <input type="checkbox" id="optionSwitch">
-                <span class="slider"></span>
-            </label>
-            <span class="switch-text">Instagram</span>
-        </div>
-        <p>Viewer options:</p>
-        <label>
-            <input class="option" type="radio" name="option" value="picuki" checked>
-            <span class="option-text">Picuki</span>
+      <div class="switch-label">
+        <label class="switch">
+          <input type="checkbox" id="optionSwitch">
+          <span class="slider"></span>
         </label>
-        <label>
-            <input class="option" type="radio" name="option" value="imginn">
-            <span class="option-text">Imginn</span>
+        <span class="switch-text">Instagram</span>
+      </div>
+      <p class="alt-text">Viewer options:</p>
+      <label>
+        <input class="option" type="radio" name="option" value="picuki" checked>
+        <span class="option-text">Picuki</span>
+      </label>
+      <label>
+        <input class="option" type="radio" name="option" value="imginn">
+        <span class="option-text">Imginn</span>
+      </label>
+
+      <p class="line"></p>
+
+      <div class="switch-label">
+        <label class="switch">
+          <input type="checkbox" id="optionSwitch-tt">
+          <span class="slider slider-tt"></span>
         </label>
-        <p>
-          <a id="toggleLink" href="#">Supported URLs</a>
-          <span class="supported">
-              <br>
-              instagram.com/handle
-              <br>
-              instagram.com/handle/tagged
-              <br>
-              instagram.com/stories/handle (I)
-              <br>
-              instagram.com/p/short_code (I)
-              <br>
-              instagram.com/handle/p/short_code (I)
-              <br>
-              instagram.com/reel/short_code (I)
-              <br>
-              instagram.com/handle/reel/short_code (I)
-              <br>
-              instagram.com/explore/tags/tag_name (P)
-              <br>
-              <br>
-              (I) only Imginn · (P) only Picuki ·  Some URLs may be redirected using a specific viewer regardless of the selected option
-          </span>
-        </p>
-    </p>
+        <span class="switch-text-tt">TikTok</span>
+      </div>
+      <p class="alt-text">Viewer option:</p>
+      <label>
+        <span class="option-text">UrleBird</span>
+      </label>
+
+      <p class="line"></p>
+      <a class="alt-text" id="openLink" href="supported.html">Supported URLs↗</a>
     </div>
 
     <script src="popup.js"></script>

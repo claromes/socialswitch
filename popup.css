@@ -5,7 +5,7 @@ body {
 }
 
 .popup-container {
-  width: 190px;
+  width: 150px;
   margin: 15px 0;
 }
 
@@ -14,12 +14,13 @@ body {
   justify-content: space-between;
 }
 
-.switch-text {
+.switch-text, .switch-text-tt {
   margin-top: 3px;
+  margin-left: auto;
 }
 
 .switch {
-  position: relative;
+  position: fixed;
   display: inline-block;
   width: 56px;
   height: 20px;
@@ -34,6 +35,10 @@ body {
   bottom: 0;
   background-color: #ff5919;
   border-radius: 30px;
+}
+
+.slider-tt {
+  background-color: #22e2e9;
 }
 
 .slider:before {
@@ -65,19 +70,14 @@ input:checked+.slider:before {
   padding-right: 20px;
 }
 
-#toggleLink, .supported {
+.alt-text {
   font-size: 10px;
   color: rgb(158, 158, 158);
+  margin-bottom: 0.5em;
 }
 
-.supported {
-  display: none;
-}
-
-#toggleLink:visited {
-  color: inherit;
-}
-
-#toggleLink:hover {
-  color: rgb(97, 97, 97);
+.line {
+  margin-bottom: 0;
+  padding-top: 10px;
+  border-top: 1px solid #f5f5f5;
 }

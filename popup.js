@@ -2,13 +2,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const switchElement = document.getElementById('optionSwitch');
   const radioOptions = document.querySelectorAll('.option');
 
-  // Toggle link
-  const toggleLink = document.getElementById('toggleLink');
-  const supportedElement = document.querySelector('.supported');
-
-  toggleLink.addEventListener('click', function (event) {
-    event.preventDefault();
-    supportedElement.style.display = (supportedElement.style.display === 'none' || supportedElement.style.display === '') ? 'block' : 'none';
+  // Open Supported URLs link
+  let openLink = document.getElementById('openLink');
+  openLink.addEventListener('click', function() {
+    window.open('supported.html', '_blank');
   });
 
   // Change switch
