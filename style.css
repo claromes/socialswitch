@@ -15,11 +15,10 @@ body {
 .switch-label {
   display: flex;
   justify-content: end;
-  padding-bottom: 12px;
+  padding-bottom: 5px;
 }
 
 .switch-text {
-  margin-top: 3px;
   margin-right: auto;
 }
 
@@ -89,7 +88,6 @@ input:checked+.slider:before {
 
 .option-container {
   display: grid;
-  grid-template-columns: repeat(2, 80px);
 }
 
 .alt-text {

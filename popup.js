@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const switchElementIG = document.getElementById('optionSwitchIG');
   const switchElementTT = document.getElementById('optionSwitchTT');
   const radioOptions = document.querySelectorAll('.option');
+  const radioOptionsTT = document.querySelectorAll('.option-tt');
 
   // Open Supported URLs link
   const openLink = document.getElementById('openLink');
@@ -16,6 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
   // Change redirection
   radioOptions.forEach(option => {
     option.addEventListener('change', handleOptionChange);
+  });
+
+  radioOptionsTT.forEach(option => {
+    option.addEventListener('change', handleOptionChangeTT);
   });
 
   // Storage switch
@@ -45,11 +50,24 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector(`input[value="${selectedOption}"]`).checked = true;
   });
 
+  chrome.storage.sync.get({ selectedOptionTT: 'urlebird' }, function(data) {
+    const selectedOptionTT = data.selectedOptionTT;
+    document.querySelector(`input[value="${selectedOptionTT}"]`).checked = true;
+  });
+
   radioOptions.forEach(function(option) {
     option.addEventListener('change', function() {
       const selectedOption = document.querySelector('input[name="option"]:checked').value;
 
       chrome.storage.sync.set({ selectedOption: selectedOption });
+    });
+  });
+
+  radioOptionsTT.forEach(function(option) {
+    option.addEventListener('change', function() {
+      const selectedOptionTT = document.querySelector('input[name="option-tt"]:checked').value;
+
+      chrome.storage.sync.set({ selectedOptionTT: selectedOptionTT });
     });
   });
 });
@@ -68,4 +86,9 @@ function handleSwitchChangeTT() {
 function handleOptionChange() {
   const selectedOption = document.querySelector('input[name="option"]:checked').value;
   chrome.runtime.sendMessage({ selectedOption });
+}
+
+function handleOptionChangeTT() {
+  const selectedOptionTT = document.querySelector('input[name="option-tt"]:checked').value;
+  chrome.runtime.sendMessage({ selectedOptionTT });
 }
