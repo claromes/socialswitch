@@ -1,6 +1,7 @@
 body {
   color: #6e6e6e;
   min-width: 150px;
+  margin: 10px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -10,13 +11,12 @@ body {
 
 .popup-container {
   width: 170px;
-  margin: 15px 0;
 }
 
 .switch-label {
   display: flex;
   justify-content: end;
-  padding-bottom: 8px;
+  padding-bottom: 5px;
 }
 
 .switch-text {

@@ -1,7 +1,7 @@
 // States
 function getMessagesIG(request) {
-  let switchStateIG = request.switchStateIG;
-  let selectedOption = request.selectedOption;
+  const switchStateIG = request.switchStateIG;
+  const selectedOption = request.selectedOption;
 
   chrome.storage.local.set({ switchStateIG: switchStateIG, selectedOption: selectedOption });
 
@@ -9,20 +9,18 @@ function getMessagesIG(request) {
 }
 
 function getMessagesTT(request) {
-  let switchStateTT = request.switchStateTT;
+  const switchStateTT = request.switchStateTT;
 
   chrome.storage.local.set({ switchStateTT: switchStateTT });
 
-  return [switchStateTT];
+  return switchStateTT;
 }
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   const [switchStateIG, selectedOption] = getMessagesIG(request);
   sendResponse({ switchStateIG: switchStateIG, selectedOption: selectedOption });
-});
 
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  const [switchStateTT] = getMessagesTT(request);
+  const switchStateTT = getMessagesTT(request);
   sendResponse({ switchStateTT: switchStateTT });
 });
 
@@ -73,7 +71,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           // https://instagram.com/<handle>
           // https://instagram.com/<handle>/
           // https://instagram.com/<handle>/?hl=en
-          let redirectUrl = `${baseUrl}${Profile}${handleProfile}`;
+          const redirectUrl = `${baseUrl}${Profile}${handleProfile}`;
 
           chrome.tabs.update(tabId, { url: redirectUrl });
         } else if (handleProfile === 'p' || handleProfile === 'reel') {
@@ -198,9 +196,19 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         const handleProfileWithAt = tab.url.split("/")[3];
         const handleProfileTT = handleProfileWithAt.replace(/^@/, '');
 
-        let redirectTTUrl = `${baseUrlTT}user/${handleProfileTT}/`;
+        const regexLongCode = /^https:\/\/www\.tiktok\.com\/[^/]+\/video\/([^/?]+)/;
+        const matchLongCode = tab.url.match(regexLongCode);
 
-        chrome.tabs.update(tabId, { url: redirectTTUrl });
+        const regexIsNotProfile = /@(.+)/;
+        const isNotProfile = regexIsNotProfile.test(handleProfileWithAt)
+
+        // https://www.tiktok.com/@<handle>
+        // https://www.tiktok.com/@<handle>/*
+        if (handleProfileWithAt.startsWith('@') && isNotProfile && !matchLongCode) {
+          const redirectTTUrl = `${baseUrlTT}user/${handleProfileTT}/`;
+
+          chrome.tabs.update(tabId, { url: redirectTTUrl });
+        }
       }
     }
   });

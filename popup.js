@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const radioOptions = document.querySelectorAll('.option');
 
   // Open Supported URLs link
-  let openLink = document.getElementById('openLink');
+  const openLink = document.getElementById('openLink');
   openLink.addEventListener('click', function() {
     window.open('supported.html', '_blank');
   });
