@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Social Switch",
-  "version": "0.4",
+  "version": "0.5",
   "description": "Redirect Instagram URLs to anonymous viewers",
   "homepage_url": "https://github.com/claromes/socialswitch",
   "author": "Claromes",

@@ -13,13 +13,13 @@ jobs:
 
       - name: Zip file
         run: |
-          mkdir socialswitch-v0.4
-          cp background.js popup.js popup.html popup.css manifest.json socialswitch-v0.4/
-          cp -r icons/ socialswitch-v0.4/
-          zip -r socialswitch-v0.4.zip socialswitch-v0.4
+          mkdir socialswitch-v0.5
+          cp background.js popup.js popup.html supported.html style.css manifest.json socialswitch-v0.5/
+          cp -r icons/ socialswitch-v0.5/
+          zip -r socialswitch-v0.5.zip socialswitch-v0.5
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: socialswitch-v0.4
-          path: socialswitch-v0.4.zip
+          name: socialswitch-v0.5
+          path: socialswitch-v0.5.zip

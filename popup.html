@@ -4,42 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Switch</title>
-    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="popup-container">
-      <div class="switch-label">
-        <label class="switch">
-          <input type="checkbox" id="optionSwitchIG">
-          <span class="slider"></span>
+      <div class="switch-container">
+        <div class="switch-label">
+          <label class="switch">
+            <input type="checkbox" id="optionSwitchIG">
+            <span class="slider"></span>
+          </label>
+          <span class="switch-text">Instagram</span>
+        </div>
+        <label>
+          <input class="option" type="radio" name="option" value="picuki" checked>
+          <span class="option-text">Picuki</span>
         </label>
-        <span class="switch-text">Instagram</span>
-      </div>
-      <p class="alt-text">Viewer options:</p>
-      <label>
-        <input class="option" type="radio" name="option" value="picuki" checked>
-        <span class="option-text">Picuki</span>
-      </label>
-      <label>
-        <input class="option" type="radio" name="option" value="imginn">
-        <span class="option-text">Imginn</span>
-      </label>
-
-      <p class="line"></p>
-
-      <div class="switch-label">
-        <label class="switch">
-          <input type="checkbox" id="optionSwitchTT">
-          <span class="slider slider-tt"></span>
+        <label>
+          <input class="option" type="radio" name="option" value="imginn">
+          <span class="option-text">Imginn</span>
         </label>
-        <span class="switch-text-tt">TikTok</span>
       </div>
-      <p class="alt-text">Viewer option:</p>
-      <label>
-        <span class="option-text">UrleBird</span>
-      </label>
 
-      <p class="line"></p>
+      <div class="switch-container">
+        <div class="switch-label">
+          <label class="switch">
+            <input type="checkbox" id="optionSwitchTT">
+            <span class="slider slider-tt"></span>
+          </label>
+          <span class="switch-text">TikTok</span>
+        </div>
+        <label>
+          <span class="option-text">UrleBird</span>
+        </label>
+      </div>
+
       <a class="alt-text" id="openLink" href="supported.html">Supported URLs↗</a>
     </div>
 
