@@ -1,6 +1,5 @@
 body {
   color: #6e6e6e;
-  min-width: 150px;
   margin: 10px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -10,13 +9,13 @@ body {
 }
 
 .popup-container {
-  width: 170px;
+  width: 155px;
 }
 
 .switch-label {
   display: flex;
   justify-content: end;
-  padding-bottom: 5px;
+  padding-bottom: 12px;
 }
 
 .switch-text {
@@ -43,7 +42,7 @@ body {
 }
 
 .slider-tt {
-  background-color: #1ed6ee;
+  background-color: #ff0a58;
 }
 
 .slider:before {
@@ -71,6 +70,10 @@ input:checked+.slider:before {
   vertical-align: bottom;
 }
 
+.option-tt {
+  accent-color: #ff0a58;
+}
+
 .option-text {
   padding-right: 20px;
   font-size: 11px;
@@ -78,10 +81,15 @@ input:checked+.slider:before {
 }
 
 .switch-container {
-  margin: 10px 0;
+  margin: 5px 0;
   padding: 10px;
   background-color: #f5f5f5;
   border-radius: 8px;
+}
+
+.option-container {
+  display: grid;
+  grid-template-columns: repeat(2, 80px);
 }
 
 .alt-text {
