@@ -9,13 +9,13 @@ body {
 }
 
 .popup-container {
-  width: 155px;
+  width: 175px;
 }
 
 .switch-label {
   display: flex;
   justify-content: end;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 .switch-text {
@@ -36,12 +36,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ff5919;
+  background-color: #d4d4d4;
   border-radius: 30px;
-}
-
-.slider-tt {
-  background-color: #ff0a58;
 }
 
 .slider:before {
@@ -56,7 +52,11 @@ body {
 }
 
 input:checked+.slider {
-  background: #d4d4d4;
+  background: #ff5919;
+}
+
+input:checked+.slider-tt {
+  background: #ff0a58;
 }
 
 input:checked+.slider:before {
@@ -83,7 +83,7 @@ input:checked+.slider:before {
   margin: 5px 0;
   padding: 10px;
   background-color: #f5f5f5;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 
 .option-container {
@@ -95,4 +95,9 @@ input:checked+.slider:before {
   color: rgb(158, 158, 158);
   padding-left: 10px;
   margin-bottom: 0.5em;
+}
+
+img {
+  vertical-align: bottom;
+  padding-right: 5px;
 }

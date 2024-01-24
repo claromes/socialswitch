@@ -35,13 +35,13 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     // Set storage option
     chrome.storage.local.set({ switchStateIG: switchStateIG, selectedOption: selectedOption });
 
-    if (!switchStateIG) {
+    if (switchStateIG) {
       let baseUrl;
 
       if (selectedOption === 'picuki') {
-        baseUrl = 'https://www.picuki.com';
+        baseUrl = 'https://picuki.com';
       } else if (selectedOption === 'imginn') {
-        baseUrl = 'https://www.imginn.com';
+        baseUrl = 'https://imginn.com';
       }
 
       // https://www.instagram.com/*
@@ -189,13 +189,13 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     // Set storage option
     chrome.storage.local.set({ switchStateTT: switchStateTT, selectedOptionTT: selectedOptionTT });
 
-    if (!switchStateTT) {
+    if (switchStateTT) {
       let baseUrlTT;
 
       if (selectedOptionTT === 'urlebird') {
-        baseUrlTT = 'https://www.urlebird.com/';
+        baseUrlTT = 'https://urlebird.com/';
       } else if (selectedOptionTT === 'xaller') {
-        baseUrlTT = 'https://www.xaller.com/';
+        baseUrlTT = 'https://xaller.com/';
       }
 
       // https://www.tiktok.com/*
