@@ -21,4 +21,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: socialswitch-v0.5
-          path: socialswitch-v0.5.zip
+          path: socialswitch-v0.5
