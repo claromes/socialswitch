@@ -15,15 +15,13 @@ From **Instagram** URLs to **Picuki.com** or **Imginn.com**, and from **TikTok**
 
 ## Installation
 
-[![Install from Chrome Web Store](assets\cws_badge.png "Install from Chrome Web Store")](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
+[![Install from Chrome Web Store](assets/cws_badge.png "Install from Chrome Web Store")](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
 
 ## Usage
 
 Select a viewer option and enable or disable redirection through the popup.
 
-<p align="center">
-    <img src="assets\popup.jpg">
-</p>
+![Social Switch Popup](assets/popup.jpg "Social Switch Popup")
 
 For Instagram post URLs (`instagram.com/p/short_code`) and Instagram stories profile URLs (`instagram.com/stories/handle`), regardless of the redirection option, the extension will redirect to Imginn.com. This viewer uses the original post short code, and it has the option to view only stories via URL. However, for tag URLs (`instagram.com/explore/tags/tag_name`), irrespective of the redirection option, the extension will redirect to Picuki.com, as only this viewer supports tag search.
 
