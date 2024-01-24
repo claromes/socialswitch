@@ -11,12 +11,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Zip file
+      - name: Files
         run: |
           mkdir socialswitch-v0.5
           cp background.js popup.js popup.html supported.html style.css manifest.json socialswitch-v0.5/
           cp -r icons/ socialswitch-v0.5/
-          zip -r socialswitch-v0.5.zip socialswitch-v0.5
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
