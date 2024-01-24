@@ -25,51 +25,51 @@ Select a viewer option and enable or disable redirection through the popup.
     <img src="assets\popup.jpg">
 </p>
 
-For Instagram post URLs (`instagram.com/p/<short_code>`) and Instagram stories profile URLs (`instagram.com/stories/<handle>`), regardless of the redirection option, the extension will redirect to Imginn.com. This viewer uses the original post short code, and it has the option to view only stories via URL. However, for tag URLs (`instagram.com/explore/tags/<tag_name>`), irrespective of the redirection option, the extension will redirect to Picuki.com, as only this viewer supports tag search.
+For Instagram post URLs (`instagram.com/p/short_code`) and Instagram stories profile URLs (`instagram.com/stories/handle`), regardless of the redirection option, the extension will redirect to Imginn.com. This viewer uses the original post short code, and it has the option to view only stories via URL. However, for tag URLs (`instagram.com/explore/tags/tag_name`), irrespective of the redirection option, the extension will redirect to Picuki.com, as only this viewer supports tag search.
 
 ### Supported URLs
 
 - Instagram:
 
-  `instagram.com/<handle>`
+  `instagram.com/handle`
 
-  `instagram.com/<handle>/tagged`
+  `instagram.com/handle/tagged`
 
-  `instagram.com/stories/<handle>` *(only Imginn)*
+  `instagram.com/stories/handle` *(only Imginn)*
 
-  `instagram.com/p/<short_code>` *(only Imginn)*
+  `instagram.com/p/short_code` *(only Imginn)*
 
-  `instagram.com/<handle>/p/<short_code>` *(only Imginn)*
+  `instagram.com/handle/p/short_code` *(only Imginn)*
 
-  `instagram.com/reel/<short_code>` *(only Imginn)*
+  `instagram.com/reel/short_code` *(only Imginn)*
 
-  `instagram.com/<handle>/reel/<short_code>` *(only Imginn)*
+  `instagram.com/handle/reel/short_code` *(only Imginn)*
 
-  `instagram.com/explore/tags/<tag_name>` *(only Picuki)*
+  `instagram.com/explore/tags/tag_name` *(only Picuki)*
 
 - TikTok:
 
-  `tiktok.com/@<handle>`
+  `tiktok.com/@handle`
 
 ### Unsupported URLs
 
 - Instagram:
 
-  `instagram.com/s/<long_code>?story_media_id=<story_media_id>` *(story URL)*
+  `instagram.com/s/long_code?story_media_id=story_media_id` *(story URL)*
 
-  `instagram.com/tv/<short_code>/?igshid=<igsh_id>` *(IGTV URL)*
+  `instagram.com/tv/short_code/?igshid=igsh_id` *(IGTV URL)*
 
 - TikTok:
 
-  `tiktok.com/@<handle>/video/<long_code>` *(Video URL)*
+  `tiktok.com/@handle/video/long_code` *(video URL)*
 
-  `tiktok.com/following` *(Following URL)*
+  `tiktok.com/following` *(following URL)*
 
-  `tiktok.com/friends` *(Friends URL)*
+  `tiktok.com/friends` *(friends URL)*
 
-  `tiktok.com/explore` *(Explore URL)*
+  `tiktok.com/explore` *(explore URL)*
 
-  `tiktok.com/@` *(Your Own Profile URL)*
+  `tiktok.com/@` *(your own profile URL)*
 
 ## Development
 
@@ -92,4 +92,3 @@ $ `cd socialswitch`
 
 - [Claromes](https://claromes.com), author and maintainer
 - [MagicPattern](https://unsplash.com/@magicpattern), background image of the [promotional assets](assets)
-
