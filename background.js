@@ -1,11 +1,11 @@
 // States
 function getMessagesIG(request) {
   const switchStateIG = request.switchStateIG;
-  const selectedOption = request.selectedOption;
+  const selectedOptionIG = request.selectedOptionIG;
 
-  chrome.storage.local.set({ switchStateIG: switchStateIG, selectedOption: selectedOption });
+  chrome.storage.local.set({ switchStateIG: switchStateIG, selectedOptionIG: selectedOptionIG });
 
-  return [switchStateIG, selectedOption];
+  return [switchStateIG, selectedOptionIG];
 }
 
 function getMessagesTT(request) {
@@ -18,8 +18,8 @@ function getMessagesTT(request) {
 }
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  const [switchStateIG, selectedOption] = getMessagesIG(request);
-  sendResponse({ switchStateIG: switchStateIG, selectedOption: selectedOption });
+  const [switchStateIG, selectedOptionIG] = getMessagesIG(request);
+  sendResponse({ switchStateIG: switchStateIG, selectedOptionIG: selectedOptionIG });
 
   const [switchStateTT, selectedOptionTT] = getMessagesTT(request);
   sendResponse({ switchStateTT: switchStateTT, selectedOptionTT: selectedOptionTT });
@@ -30,17 +30,17 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   // Get storage option
   chrome.storage.local.get(['switchStateIG', 'selectedOption'], function(result) {
     switchStateIG = result.switchStateIG || false;
-    selectedOption = result.selectedOption || 'picuki';
+    selectedOptionIG = result.selectedOptionIG || 'picuki';
 
     // Set storage option
-    chrome.storage.local.set({ switchStateIG: switchStateIG, selectedOption: selectedOption });
+    chrome.storage.local.set({ switchStateIG: switchStateIG, selectedOptionIG: selectedOptionIG });
 
     if (switchStateIG) {
       let baseUrl;
 
-      if (selectedOption === 'picuki') {
+      if (selectedOptionIG === 'picuki') {
         baseUrl = 'https://picuki.com';
-      } else if (selectedOption === 'imginn') {
+      } else if (selectedOptionIG === 'imginn') {
         baseUrl = 'https://imginn.com';
       }
 

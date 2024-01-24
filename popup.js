@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const switchElementIG = document.getElementById('optionSwitchIG');
   const switchElementTT = document.getElementById('optionSwitchTT');
-  const radioOptions = document.querySelectorAll('.option');
+  const radioOptionsIG = document.querySelectorAll('.option');
   const radioOptionsTT = document.querySelectorAll('.option-tt');
 
   // Open Supported URLs link
@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
   switchElementTT.addEventListener('change', handleSwitchChangeTT);
 
   // Change redirection
-  radioOptions.forEach(option => {
-    option.addEventListener('change', handleOptionChange);
+  radioOptionsIG.forEach(option => {
+    option.addEventListener('change', handleOptionChangeIG);
   });
 
   radioOptionsTT.forEach(option => {
@@ -45,9 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Storage redirection
-  chrome.storage.sync.get({ selectedOption: 'picuki' }, function(data) {
-    const selectedOption = data.selectedOption;
-    document.querySelector(`input[value="${selectedOption}"]`).checked = true;
+  chrome.storage.sync.get({ selectedOptionIG: 'picuki' }, function(data) {
+    const selectedOptionIG = data.selectedOptionIG;
+    document.querySelector(`input[value="${selectedOptionIG}"]`).checked = true;
   });
 
   chrome.storage.sync.get({ selectedOptionTT: 'urlebird' }, function(data) {
@@ -55,11 +55,11 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector(`input[value="${selectedOptionTT}"]`).checked = true;
   });
 
-  radioOptions.forEach(function(option) {
+  radioOptionsIG.forEach(function(option) {
     option.addEventListener('change', function() {
-      const selectedOption = document.querySelector('input[name="option"]:checked').value;
+      const selectedOptionIG = document.querySelector('input[name="option"]:checked').value;
 
-      chrome.storage.sync.set({ selectedOption: selectedOption });
+      chrome.storage.sync.set({ selectedOptionIG: selectedOptionIG });
     });
   });
 
@@ -83,9 +83,9 @@ function handleSwitchChangeTT() {
   chrome.runtime.sendMessage({ switchStateTT });
 }
 
-function handleOptionChange() {
-  const selectedOption = document.querySelector('input[name="option"]:checked').value;
-  chrome.runtime.sendMessage({ selectedOption });
+function handleOptionChangeIG() {
+  const selectedOptionIG = document.querySelector('input[name="option"]:checked').value;
+  chrome.runtime.sendMessage({ selectedOptionIG });
 }
 
 function handleOptionChangeTT() {
