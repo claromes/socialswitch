@@ -8,6 +8,11 @@ Redirect Instagram and TikTok URLs to anonymous viewers. Access any profile, pos
 
 From **Instagram** URLs to **Picuki.com** or **Imginn.com**, and from **TikTok** URLs to **UrleBird.com** or **Xaller.com**.
 
+> [!NOTE]
+> For those seeking an alternative redirection for open-source instances, I recommend using the LibRedirect extension. The Social Switch extension aims to streamline access to web viewers that are more stable and facilitate the download of assets from both Instagram and TikTok. It targets users who prefer these anonymous but closed-source platforms.
+>
+> This extension is not affiliated with Instagram, TikTok, Picuki, Imginn, UrleBird and Xaller.
+
 ## Installation
 
 [![Install from Chrome Web Store](assets\cws_badge.png "Install from Chrome Web Store")](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
@@ -88,5 +93,3 @@ $ `cd socialswitch`
 - [Claromes](https://claromes.com), author and maintainer
 - [MagicPattern](https://unsplash.com/@magicpattern), background image of the [promotional assets](assets)
 
-> [!NOTE]
-> This extension is not affiliated with Instagram, TikTok, UrleBird, Xaller, Picuki and Imginn.
