@@ -28,7 +28,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   // -- Instagram --
   // Get storage option
-  chrome.storage.local.get(['switchStateIG', 'selectedOption'], function(result) {
+  chrome.storage.local.get(['switchStateIG', 'selectedOptionIG'], function(result) {
     switchStateIG = result.switchStateIG || false;
     selectedOptionIG = result.selectedOptionIG || 'picuki';
 
@@ -87,7 +87,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           const matchPostReel = tab.url.match(regexPostReel);
 
           if (matchPost || matchPostReel) {
-            baseUrl = 'https://www.imginn.com';
+            baseUrl = 'https://imginn.com';
             const postCode = matchPost ? matchPost[1] : matchPostReel[1];
             const redirectUrlPost = `${baseUrl}/p/${postCode}`;
 
@@ -105,7 +105,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           const matchHandlePostReel = tab.url.match(regexHandlePostReel);
 
           if (matchHandlePost || matchHandlePostReel) {
-            baseUrl = 'https://www.imginn.com';
+            baseUrl = 'https://imginn.com';
             const handlePostCode = matchHandlePost ? matchHandlePost[1] : matchHandlePostReel[1];
             const redirectUrlHandlePost = `${baseUrl}/p/${handlePostCode}`;
 
@@ -119,7 +119,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           const matchStory = tab.url.match(regexStory);
 
           if (matchStory) {
-            baseUrl = 'https://www.imginn.com';
+            baseUrl = 'https://imginn.com';
             const handleStory = matchStory[1];
             const redirectUrlStory = `${baseUrl}/stories/${handleStory}`;
 
@@ -156,7 +156,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         const matchStoryLogin = tab.url.match(regexStoryLogin);
 
         if (matchStoryLogin) {
-          baseUrl = 'https://www.imginn.com';
+          baseUrl = 'https://imginn.com';
           const handleStoryLogin = matchStoryLogin[1];
           const redirectUrlStoryLogin = `${baseUrl}/stories/${handleStoryLogin}`;
 
@@ -170,7 +170,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         const matchTags = tab.url.match(regexTags);
 
         if (matchTags) {
-          baseUrl = 'https://www.picuki.com';
+          baseUrl = 'https://picuki.com';
           const tagName = matchTags[1];
           const redirectUrlTags = `${baseUrl}/tag/${tagName}`;
 
