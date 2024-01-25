@@ -1,57 +1,94 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const switchElement = document.getElementById('optionSwitch');
-  const radioOptions = document.querySelectorAll('.option');
+  const switchElementIG = document.getElementById('optionSwitchIG');
+  const switchElementTT = document.getElementById('optionSwitchTT');
+  const radioOptionsIG = document.querySelectorAll('.option');
+  const radioOptionsTT = document.querySelectorAll('.option-tt');
 
-  // Toggle link
-  const toggleLink = document.getElementById('toggleLink');
-  const supportedElement = document.querySelector('.supported');
-
-  toggleLink.addEventListener('click', function (event) {
-    event.preventDefault();
-    supportedElement.style.display = (supportedElement.style.display === 'none' || supportedElement.style.display === '') ? 'block' : 'none';
+  // Open Supported URLs link
+  const openLink = document.getElementById('openLink');
+  openLink.addEventListener('click', function() {
+    window.open('supported.html', '_blank');
   });
 
   // Change switch
-  switchElement.addEventListener('change', handleSwitchChange);
+  switchElementIG.addEventListener('change', handleSwitchChangeIG);
+  switchElementTT.addEventListener('change', handleSwitchChangeTT);
 
   // Change redirection
-  radioOptions.forEach(option => {
-    option.addEventListener('change', handleOptionChange);
+  radioOptionsIG.forEach(option => {
+    option.addEventListener('change', handleOptionChangeIG);
+  });
+
+  radioOptionsTT.forEach(option => {
+    option.addEventListener('change', handleOptionChangeTT);
   });
 
   // Storage switch
-  chrome.storage.sync.get('checkboxState', function(data) {
-    if (data.checkboxState) {
-      switchElement.checked = data.checkboxState;
+  chrome.storage.sync.get('checkboxStateIG', function(data) {
+    if (data.checkboxStateIG) {
+      switchElementIG.checked = data.checkboxStateIG;
     }
   });
 
-  switchElement.addEventListener('change', function() {
-    chrome.storage.sync.set({ 'checkboxState': switchElement.checked });
+  chrome.storage.sync.get('checkboxStateTT', function(data) {
+    if (data.checkboxStateTT) {
+      switchElementTT.checked = data.checkboxStateTT;
+    }
+  });
+
+  switchElementIG.addEventListener('change', function() {
+    chrome.storage.sync.set({ 'checkboxStateIG': switchElementIG.checked });
+  });
+
+  switchElementTT.addEventListener('change', function() {
+    chrome.storage.sync.set({ 'checkboxStateTT': switchElementTT.checked });
   });
 
   // Storage redirection
-  chrome.storage.sync.get({ selectedOption: 'picuki' }, function(data) {
-    const selectedOption = data.selectedOption;
-    document.querySelector(`input[value="${selectedOption}"]`).checked = true;
+  chrome.storage.sync.get({ selectedOptionIG: 'picuki' }, function(data) {
+    const selectedOptionIG = data.selectedOptionIG;
+    document.querySelector(`input[value="${selectedOptionIG}"]`).checked = true;
   });
 
-  radioOptions.forEach(function(option) {
-    option.addEventListener('change', function() {
-      const selectedOption = document.querySelector('input[name="option"]:checked').value;
+  chrome.storage.sync.get({ selectedOptionTT: 'urlebird' }, function(data) {
+    const selectedOptionTT = data.selectedOptionTT;
+    document.querySelector(`input[value="${selectedOptionTT}"]`).checked = true;
+  });
 
-      chrome.storage.sync.set({ selectedOption: selectedOption });
+  radioOptionsIG.forEach(function(option) {
+    option.addEventListener('change', function() {
+      const selectedOptionIG = document.querySelector('input[name="option"]:checked').value;
+
+      chrome.storage.sync.set({ selectedOptionIG: selectedOptionIG });
+    });
+  });
+
+  radioOptionsTT.forEach(function(option) {
+    option.addEventListener('change', function() {
+      const selectedOptionTT = document.querySelector('input[name="option-tt"]:checked').value;
+
+      chrome.storage.sync.set({ selectedOptionTT: selectedOptionTT });
     });
   });
 });
 
 // Communication with the background.js file
-function handleSwitchChange() {
-  const switchState = document.getElementById('optionSwitch').checked;
-  chrome.runtime.sendMessage({ switchState });
+function handleSwitchChangeIG() {
+  const switchStateIG = document.getElementById('optionSwitchIG').checked;
+  chrome.runtime.sendMessage({ switchStateIG });
 }
 
-function handleOptionChange() {
-  const selectedOption = document.querySelector('input[name="option"]:checked').value;
-  chrome.runtime.sendMessage({ selectedOption });
+function handleSwitchChangeTT() {
+  const switchStateTT = document.getElementById('optionSwitchTT').checked;
+  chrome.runtime.sendMessage({ switchStateTT });
+}
+
+function handleOptionChangeIG() {
+  const selectedOptionIG = document.querySelector('input[name="option"]:checked').value;
+  chrome.runtime.sendMessage({ selectedOptionIG });
+}
+
+function handleOptionChangeTT() {
+  const selectedOptionTT = document.querySelector('input[name="option-tt"]:checked').value;
+  chrome.runtime.sendMessage({ selectedOptionTT });
 }

@@ -1,47 +1,60 @@
 // States
-function getMessages(request) {
-  let switchState = request.switchState;
-  let selectedOption = request.selectedOption;
+function getMessagesIG(request) {
+  const switchStateIG = request.switchStateIG;
+  const selectedOptionIG = request.selectedOptionIG;
 
-  chrome.storage.local.set({ switchState: switchState, selectedOption: selectedOption });
+  chrome.storage.local.set({ switchStateIG: switchStateIG, selectedOptionIG: selectedOptionIG });
 
-  return [switchState, selectedOption];
+  return [switchStateIG, selectedOptionIG];
+}
+
+function getMessagesTT(request) {
+  const switchStateTT = request.switchStateTT;
+  const selectedOptionTT = request.selectedOptionTT;
+
+  chrome.storage.local.set({ switchStateTT: switchStateTT, selectedOptionTT: selectedOptionTT });
+
+  return [switchStateTT, selectedOptionTT];
 }
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  const [switchState, selectedOption] = getMessages(request);
-  sendResponse({ switchState: switchState, selectedOption: selectedOption });
+  const [switchStateIG, selectedOptionIG] = getMessagesIG(request);
+  sendResponse({ switchStateIG: switchStateIG, selectedOptionIG: selectedOptionIG });
+
+  const [switchStateTT, selectedOptionTT] = getMessagesTT(request);
+  sendResponse({ switchStateTT: switchStateTT, selectedOptionTT: selectedOptionTT });
 });
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+  // -- Instagram --
   // Get storage option
-  chrome.storage.local.get(['switchState', 'selectedOption'], function(result) {
-    switchState = result.switchState || false;
-    selectedOption = result.selectedOption || 'picuki';
+  chrome.storage.local.get(['switchStateIG', 'selectedOptionIG'], function(result) {
+    switchStateIG = result.switchStateIG || false;
+    selectedOptionIG = result.selectedOptionIG || 'picuki';
 
     // Set storage option
-    chrome.storage.local.set({ switchState: switchState, selectedOption: selectedOption });
+    chrome.storage.local.set({ switchStateIG: switchStateIG, selectedOptionIG: selectedOptionIG });
 
-    if (!switchState) {
+    if (switchStateIG) {
       let baseUrl;
 
-      if (selectedOption === 'picuki') {
-        baseUrl = 'https://www.picuki.com';
-      } else if (selectedOption === 'imginn') {
-        baseUrl = 'https://www.imginn.com';
+      if (selectedOptionIG === 'picuki') {
+        baseUrl = 'https://picuki.com';
+      } else if (selectedOptionIG === 'imginn') {
+        baseUrl = 'https://imginn.com';
       }
 
       // https://www.instagram.com/*
       if (tab.url && tab.url.startsWith('https://www.instagram.com/')) {
-        let Profile;
-        let ProfileTagged;
+        let profile;
+        let profileTagged;
 
         if (baseUrl.includes('picuki')) {
-          Profile = '/profile/';
-          ProfileTagged = '/profile-tagged/';
+          profile = '/profile/';
+          profileTagged = '/profile-tagged/';
         } else if (baseUrl.includes('imginn')) {
-          Profile = '/';
-          ProfileTagged = '/tagged/';
+          profile = '/';
+          profileTagged = '/tagged/';
         }
 
         const handleProfile = tab.url.split("/")[3];
@@ -59,7 +72,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           // https://instagram.com/<handle>
           // https://instagram.com/<handle>/
           // https://instagram.com/<handle>/?hl=en
-          let redirectUrl = `${baseUrl}${Profile}${handleProfile}`;
+          const redirectUrl = `${baseUrl}${profile}${handleProfile}`;
 
           chrome.tabs.update(tabId, { url: redirectUrl });
         } else if (handleProfile === 'p' || handleProfile === 'reel') {
@@ -74,7 +87,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           const matchPostReel = tab.url.match(regexPostReel);
 
           if (matchPost || matchPostReel) {
-            baseUrl = 'https://www.imginn.com';
+            baseUrl = 'https://imginn.com';
             const postCode = matchPost ? matchPost[1] : matchPostReel[1];
             const redirectUrlPost = `${baseUrl}/p/${postCode}`;
 
@@ -92,7 +105,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           const matchHandlePostReel = tab.url.match(regexHandlePostReel);
 
           if (matchHandlePost || matchHandlePostReel) {
-            baseUrl = 'https://www.imginn.com';
+            baseUrl = 'https://imginn.com';
             const handlePostCode = matchHandlePost ? matchHandlePost[1] : matchHandlePostReel[1];
             const redirectUrlHandlePost = `${baseUrl}/p/${handlePostCode}`;
 
@@ -106,7 +119,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           const matchStory = tab.url.match(regexStory);
 
           if (matchStory) {
-            baseUrl = 'https://www.imginn.com';
+            baseUrl = 'https://imginn.com';
             const handleStory = matchStory[1];
             const redirectUrlStory = `${baseUrl}/stories/${handleStory}`;
 
@@ -121,7 +134,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
         if (matchTagged) {
           const handleTagged = matchTagged[1];
-          const redirectUrlTagged = `${baseUrl}${ProfileTagged}${handleTagged}`;
+          const redirectUrlTagged = `${baseUrl}${profileTagged}${handleTagged}`;
 
           chrome.tabs.update(tabId, { url: redirectUrlTagged });
         }
@@ -132,7 +145,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
         if (matchTaggedLogin) {
           const handleTaggedLogin = matchTaggedLogin[1];
-          const redirectUrlTaggedLogin = `${baseUrl}${ProfileTagged}${handleTaggedLogin}`;
+          const redirectUrlTaggedLogin = `${baseUrl}${profileTagged}${handleTaggedLogin}`;
 
           chrome.tabs.update(tabId, { url: redirectUrlTaggedLogin });
         }
@@ -143,7 +156,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         const matchStoryLogin = tab.url.match(regexStoryLogin);
 
         if (matchStoryLogin) {
-          baseUrl = 'https://www.imginn.com';
+          baseUrl = 'https://imginn.com';
           const handleStoryLogin = matchStoryLogin[1];
           const redirectUrlStoryLogin = `${baseUrl}/stories/${handleStoryLogin}`;
 
@@ -157,11 +170,63 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         const matchTags = tab.url.match(regexTags);
 
         if (matchTags) {
-          baseUrl = 'https://www.picuki.com';
+          baseUrl = 'https://picuki.com';
           const tagName = matchTags[1];
           const redirectUrlTags = `${baseUrl}/tag/${tagName}`;
 
           chrome.tabs.update(tabId, { url: redirectUrlTags });
+        }
+      }
+    }
+  });
+
+  // -- TikTok --
+  // Get storage option
+  chrome.storage.local.get(['switchStateTT', 'selectedOptionTT'], function(result) {
+    switchStateTT = result.switchStateTT || false;
+    selectedOptionTT = result.selectedOptionTT || 'urlebird';
+
+    // Set storage option
+    chrome.storage.local.set({ switchStateTT: switchStateTT, selectedOptionTT: selectedOptionTT });
+
+    if (switchStateTT) {
+      let baseUrlTT;
+
+      if (selectedOptionTT === 'urlebird') {
+        baseUrlTT = 'https://urlebird.com/';
+      } else if (selectedOptionTT === 'xaller') {
+        baseUrlTT = 'https://xaller.com/';
+      }
+
+      // https://www.tiktok.com/*
+      if (tab.url && tab.url.startsWith('https://www.tiktok.com/')) {
+
+        let profile;
+        let slash;
+
+        if (baseUrlTT.includes('urlebird')) {
+          profile = 'user/';
+          slash = '/';
+        } else if (baseUrlTT.includes('xaller')) {
+          profile = '?username=@';
+          slash = '';
+        }
+
+        const handleProfileWithAt = tab.url.split("/")[3];
+        const handleProfileTT = handleProfileWithAt.replace(/^@/, '');
+
+        const regexLongCode = /^https:\/\/www\.tiktok\.com\/[^/]+\/video\/([^/?]+)/;
+        const matchLongCode = tab.url.match(regexLongCode);
+
+        const regexIsNotProfile = /@(.+)/;
+        const isNotProfile = regexIsNotProfile.test(handleProfileWithAt)
+
+        // https://www.tiktok.com/@<handle>
+        // https://www.tiktok.com/@<handle>/*
+        if (handleProfileWithAt.startsWith('@') && isNotProfile && !matchLongCode) {
+          const redirectTTUrl = `${baseUrlTT}${profile}${handleProfileTT}${slash}`;
+
+          chrome.tabs.update(tabId, { url: redirectTTUrl });
         }
       }
     }

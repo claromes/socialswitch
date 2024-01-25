@@ -1,25 +1,29 @@
 body {
-  color: #333;
-  min-width: 150px;
+  color: #6e6e6e;
+  margin: 10px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.supported {
+  color: #333333;
+}
+
 .popup-container {
-  width: 190px;
-  margin: 15px 0;
+  width: 175px;
 }
 
 .switch-label {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
+  padding-bottom: 10px;
 }
 
 .switch-text {
-  margin-top: 3px;
+  margin-right: auto;
 }
 
 .switch {
-  position: relative;
+  position: fixed;
   display: inline-block;
   width: 56px;
   height: 20px;
@@ -32,7 +36,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ff5919;
+  background-color: #d4d4d4;
   border-radius: 30px;
 }
 
@@ -48,7 +52,11 @@ body {
 }
 
 input:checked+.slider {
-  background: #d4d4d4;
+  background: #ff5919;
+}
+
+input:checked+.slider-tt {
+  background: #ff0a58;
 }
 
 input:checked+.slider:before {
@@ -61,23 +69,35 @@ input:checked+.slider:before {
   vertical-align: bottom;
 }
 
-.option-text{
-  padding-right: 20px;
+.option-tt {
+  accent-color: #ff0a58;
 }
 
-#toggleLink, .supported {
-  font-size: 10px;
+.option-text {
+  padding-right: 20px;
+  font-size: 11px;
   color: rgb(158, 158, 158);
 }
 
-.supported {
-  display: none;
+.switch-container {
+  margin: 5px 0;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
 }
 
-#toggleLink:visited {
-  color: inherit;
+.option-container {
+  display: grid;
 }
 
-#toggleLink:hover {
-  color: rgb(97, 97, 97);
+.alt-text {
+  font-size: 11px;
+  color: rgb(158, 158, 158);
+  padding-left: 10px;
+  margin-bottom: 0.5em;
+}
+
+img {
+  vertical-align: bottom;
+  padding-right: 5px;
 }

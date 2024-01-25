@@ -4,52 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Switch</title>
-    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="popup-container">
+      <div class="switch-container">
         <div class="switch-label">
-            <span class="switch-text">Viewer</span>
-            <label class="switch">
-                <input type="checkbox" id="optionSwitch">
-                <span class="slider"></span>
-            </label>
-            <span class="switch-text">Instagram</span>
+          <label class="switch">
+            <input type="checkbox" id="optionSwitchIG">
+            <span class="slider"></span>
+          </label>
+          <span class="switch-text"><img width="14" src="icons\instagram.svg" alt="Instagram">Instagram</span>
         </div>
-        <p>Viewer options:</p>
-        <label>
+        <div class="option-container">
+          <label>
             <input class="option" type="radio" name="option" value="picuki" checked>
             <span class="option-text">Picuki</span>
-        </label>
-        <label>
+          </label>
+          <label>
             <input class="option" type="radio" name="option" value="imginn">
             <span class="option-text">Imginn</span>
-        </label>
-        <p>
-          <a id="toggleLink" href="#">Supported URLs</a>
-          <span class="supported">
-              <br>
-              instagram.com/handle
-              <br>
-              instagram.com/handle/tagged
-              <br>
-              instagram.com/stories/handle (I)
-              <br>
-              instagram.com/p/short_code (I)
-              <br>
-              instagram.com/handle/p/short_code (I)
-              <br>
-              instagram.com/reel/short_code (I)
-              <br>
-              instagram.com/handle/reel/short_code (I)
-              <br>
-              instagram.com/explore/tags/tag_name (P)
-              <br>
-              <br>
-              (I) only Imginn · (P) only Picuki ·  Some URLs may be redirected using a specific viewer regardless of the selected option
-          </span>
-        </p>
-    </p>
+          </label>
+        </div>
+      </div>
+
+      <div class="switch-container">
+        <div class="switch-label">
+          <label class="switch">
+            <input type="checkbox" id="optionSwitchTT">
+            <span class="slider slider-tt"></span>
+          </label>
+          <span class="switch-text"><img width="12" src="icons\tiktok.svg" alt="TikTok">TikTok</span>
+        </div>
+        <div class="option-container">
+          <label>
+            <input class="option option-tt" type="radio" name="option-tt" value="urlebird" checked>
+            <span class="option-text">UrleBird</span>
+          </label>
+          <label>
+            <input class="option option-tt" type="radio" name="option-tt" value="xaller">
+            <span class="option-text">Xaller</span>
+          </label>
+        </div>
+      </div>
+
+      <a class="alt-text" id="openLink" href="supported.html">Supported URLs↗</a>
     </div>
 
     <script src="popup.js"></script>
