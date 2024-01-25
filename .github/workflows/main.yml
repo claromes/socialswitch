@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Files
         run: |
@@ -18,7 +18,7 @@ jobs:
           cp -r icons/ socialswitch-v0.5/
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: socialswitch-v0.5
           path: socialswitch-v0.5
