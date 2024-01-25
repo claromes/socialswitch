@@ -1,5 +1,3 @@
-**Ao abrir um Pull Request, marque com um X cada um dos items do checklist abaixo.**
-
 ### Checklist
-- [ ] Atualização da versão no arquivo `manifest.json`
-- [ ] Atualização da versão e inclusão/exclusão de arquivos no workflow `main.yml` para geração do ZIP
+- [ ] Update version in the manifest.json file
+- [ ] Update version and include/exclude files in the main.yml workflow for ZIP generation
