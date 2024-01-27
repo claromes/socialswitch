@@ -213,7 +213,10 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         }
 
         const handleProfileWithAt = tab.url.split("/")[3];
-        const handleProfileTT = handleProfileWithAt.replace(/^@/, '');
+        let handleProfileTT = handleProfileWithAt.replace(/^@/, '');
+
+        // delete params
+        handleProfileTT = handleProfileTT.replace(/\?.*$/, '');
 
         const regexLongCode = /^https:\/\/www\.tiktok\.com\/[^/]+\/video\/([^/?]+)/;
         const matchLongCode = tab.url.match(regexLongCode);
@@ -223,6 +226,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
         // https://www.tiktok.com/@<handle>
         // https://www.tiktok.com/@<handle>/*
+        // https://www.tiktok.com/@<handle>?*
         if (handleProfileWithAt.startsWith('@') && isNotProfile && !matchLongCode) {
           const redirectTTUrl = `${baseUrlTT}${profile}${handleProfileTT}${slash}`;
 
