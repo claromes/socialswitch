@@ -74,6 +74,8 @@
 
 - https://tiktok.com/@tiktok/
 
+- https://tiktok.com/@tiktok?lang=pt-BR
+
 # Unsupported URL
 
 ## Instagram
