@@ -226,6 +226,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
         // https://www.tiktok.com/@<handle>
         // https://www.tiktok.com/@<handle>/*
+        // https://www.tiktok.com/@<handle>?*
         if (handleProfileWithAt.startsWith('@') && isNotProfile && !matchLongCode) {
           const redirectTTUrl = `${baseUrlTT}${profile}${handleProfileTT}${slash}`;
 

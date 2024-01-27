@@ -74,7 +74,7 @@
 
 - https://tiktok.com/@tiktok/
 
-- https://tiktok.com/@tiktok?lang=pt-BR
+- https://tiktok.com/@tiktok?lang=en
 
 # Unsupported URL
 
