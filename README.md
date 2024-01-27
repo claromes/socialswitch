@@ -75,7 +75,7 @@ $ `git clone git@github.com:claromes/socialswitch.git`
 
 $ `cd socialswitch`
 
-The choice to use the `chrome.tabs` API is to avoid the blocking of redirection for certain paths by Instagram. Some tests still need to be conducted before implementing `chrome.webNavigation` or `chrome.webRequest`.
+The choice to use the `chrome.tabs` API is to avoid the blocking of redirection for certain paths by Instagram. Some tests still need to be conducted before implementing `chrome.webNavigation`, `chrome.webRequest` or `chrome.declarativeNetRequest`.
 
 [List of each type of URL for testing](urls.md).
 
