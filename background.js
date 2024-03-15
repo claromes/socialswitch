@@ -127,6 +127,17 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           }
         }
 
+        // https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2F<handle>%2F
+        const regexLogin = /^https:\/\/www\.instagram\.com\/accounts\/login\/\?next=https%3A%2F%2Fwww.instagram.com%2F([^/?]+)%2F/;
+        const matchLogin = tab.url.match(regexLogin);
+
+        if (matchLogin) {
+          const handleLogin = matchLogin[1];
+          const redirectUrlLogin = `${baseUrl}${profile}${handleLogin}`;
+
+          chrome.tabs.update(tabId, { url: redirectUrlLogin });
+        }
+
         // https://instagram.com/<handle>/tagged
         // https://instagram.com/<handle>/tagged/*
         const regexTagged = /^https:\/\/www\.instagram\.com\/([^/]+)\/tagged\/?\??$/;
