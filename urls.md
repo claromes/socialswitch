@@ -76,36 +76,4 @@
 
 - https://tiktok.com/@tiktok?lang=en
 
-# Unsupported URL
-
-## Instagram
-
-### Story URL
-
-- https://www.instagram.com/s/<long_code>?story_media_id=<story_media_id>
-
-### IGTV URL
-
-- https://www.instagram.com/tv/<short_code>/?igshid=<igsh_id>
-
-## TikTok
-
-### Video URL
-
-- https://www.tiktok.com/@tiktok/video/<long_code>
-
-### Following URL
-
-- https://www.tiktok.com/following
-
-### Friends URL
-
-- https://www.tiktok.com/friends
-
-### Explore URL
-
-- https://www.tiktok.com/explore
-
-### Your Own Profile URL
-
-- https://www.tiktok.com/@
+- https://www.tiktok.com/@tiktok#:~:text=Tik%20Tok%20(%40tiktok)%20%7C%20TikTok

@@ -49,26 +49,6 @@ For Instagram post URLs (`instagram.com/p/short_code`) and Instagram stories pro
 
   `tiktok.com/@handle`
 
-### Unsupported URLs
-
-- Instagram:
-
-  `instagram.com/s/long_code?story_media_id=story_media_id` *(story URL)*
-
-  `instagram.com/tv/short_code/?igshid=igsh_id` *(IGTV URL)*
-
-- TikTok:
-
-  `tiktok.com/@handle/video/long_code` *(video URL)*
-
-  `tiktok.com/following` *(following URL)*
-
-  `tiktok.com/friends` *(friends URL)*
-
-  `tiktok.com/explore` *(explore URL)*
-
-  `tiktok.com/@` *(your own profile URL)*
-
 ## Development
 
 $ `git clone git@github.com:claromes/socialswitch.git`

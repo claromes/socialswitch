@@ -226,8 +226,8 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         const handleProfileWithAt = tab.url.split("/")[3];
         let handleProfileTT = handleProfileWithAt.replace(/^@/, '');
 
-        // delete params
-        handleProfileTT = handleProfileTT.replace(/\?.*$/, '');
+        // Delete params and URL hash/Text Fragment (@handle?* and @handle#*)
+        handleProfileTT = handleProfileTT.replace(/[?#].*$/, '');
 
         const regexLongCode = /^https:\/\/www\.tiktok\.com\/[^/]+\/video\/([^/?]+)/;
         const matchLongCode = tab.url.match(regexLongCode);
