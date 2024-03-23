@@ -82,7 +82,11 @@ To test each group of URLs (Instagram profile, tagged, stories, post and tag, an
 - [ ] TikTok options
   - [x] User
   - [ ] Video
-- [ ] Firefox Add-ons
+- [ ] Firefox extension
+
+## Contributing
+
+You're welcome to contribute, whether it's through bug reporting, feature suggestions, or code contributions.
 
 ## Credits
 
