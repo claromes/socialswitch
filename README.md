@@ -1,8 +1,8 @@
-# Social Switch
+# ![Social Switch](icons/icon32.png "Social Switch") Social Switch
 
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/elmbjjhgiifenlhffpjcjfkjmilbbfki)](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
 
-![Social Switch](icons/icon48.png "Social Switch")
+
 
 Redirect Instagram and TikTok URLs to anonymous viewers. Access any profile, posts, tagged posts, stories profile or tags on Instagram or any profile on TikTok and the extension will redirect automatically to web viewers.
 
@@ -15,7 +15,19 @@ From **Instagram** URLs to **Picuki.com** or **Imginn.com**, and from **TikTok**
 
 ## Installation
 
-[![Install from Chrome Web Store](assets/cws_badge.png "Install from Chrome Web Store")](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
+- Web Store
+
+  [![Install from Chrome Web Store](assets/cws_badge.png "Install from Chrome Web Store")](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
+
+- From the ZIP File
+
+  - Download the [socialswitch-v0.5.2.zip](https://github.com/claromes/socialswitch/releases/tag/v0.5.2) file
+  - Extract the ZIP file
+  - Open Google Chrome and navigate to `chrome://extensions`
+  - Enable "Developer Mode" (located at the top-right corner)
+  - Click on the "Load Unpacked" button (located at the top-left corner)
+  - Navigate to the directory where you extracted the ZIP file containing the extension
+  - Select the extension folder
 
 ## Usage
 
