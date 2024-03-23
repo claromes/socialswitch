@@ -150,8 +150,8 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           chrome.tabs.update(tabId, { url: redirectUrlTagged });
         }
 
-        // https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2F<handle>%2Ftagged*__coig_login%3D1
-        const regexTaggedLogin = /^https:\/\/www\.instagram\.com\/accounts\/login\/\?next=https%3A%2F%2Fwww.instagram.com%2F([^/?]+)%2Ftagged([^/?]+)__coig_login%3D1/;
+        // https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2F<handle>2Ftagged%2F
+        const regexTaggedLogin = /^https:\/\/www\.instagram\.com\/accounts\/login\/\?next=https%3A%2F%2Fwww.instagram.com%2F([^/?]+)%2Ftagged%2F/;
         const matchTaggedLogin = tab.url.match(regexTaggedLogin);
 
         if (matchTaggedLogin) {
@@ -159,6 +159,17 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           const redirectUrlTaggedLogin = `${baseUrl}${profileTagged}${handleTaggedLogin}`;
 
           chrome.tabs.update(tabId, { url: redirectUrlTaggedLogin });
+        }
+
+        // https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2F<handle>%2Ftagged*__coig_login%3D1
+        const regexTaggedCoigLogin = /^https:\/\/www\.instagram\.com\/accounts\/login\/\?next=https%3A%2F%2Fwww.instagram.com%2F([^/?]+)%2Ftagged([^/?]+)__coig_login%3D1/;
+        const matchTaggedCoigLogin = tab.url.match(regexTaggedCoigLogin);
+
+        if (matchTaggedCoigLogin) {
+          const handleTaggedCoigLogin = matchTaggedCoigLogin[1];
+          const redirectUrlTaggedCoigLogin = `${baseUrl}${profileTagged}${handleTaggedCoigLogin}`;
+
+          chrome.tabs.update(tabId, { url: redirectUrlTaggedCoigLogin });
         }
 
         // Only Imginn

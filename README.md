@@ -67,6 +67,7 @@ The choice to use the `chrome.tabs` API is to avoid the blocking of redirection 
   - [x] User
   - [ ] Video
 - [ ] Firefox Add-ons
+- [ ] Add Integration Testing
 
 ## Credits
 
