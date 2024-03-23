@@ -69,11 +69,23 @@ The choice to use the `chrome.tabs` API is to avoid the blocking of redirection 
 
 ### Testing wih Puppeteer
 
+To test each group of URLs (Instagram profile, tagged, stories, post and tag, and TikTok profile), it is necessary to pass the option of the group you want to test when running the script. The groups are: `ig_profile`, `ig_tagged`, `ig_post`, `ig_stories`, `ig_tags`, and `tt_profile`.
+
+#### Requirement
+
+Node.js 20 or higher
+
+#### Installation
+
+Install the dependencies and then run the test with the desired group:
+
 $ `npm install`
 
-$ `npm test`
+$ `npm test [group]`
 
-To test each group of URLs (Instagram profile, tagged, stories, post and tag, and TikTok profile), it is necessary to modify the constant containing the array with each type of URL in the script `test/test.js`.
+#### Example
+
+To test Instagram profile URLs, run the command `npm test ig_profile`.
 
 ## Roadmap
 
