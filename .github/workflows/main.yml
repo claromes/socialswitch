@@ -14,8 +14,8 @@ jobs:
       - name: Files
         run: |
           mkdir socialswitch-v0.5.2
-          cp background.js popup.js popup.html supported.html style.css manifest.json socialswitch-v0.5.2/
-          cp -r icons/ socialswitch-v0.5.2/
+          cp src/background.js src/popup.js src/popup.html src/supported.html src/style.css manifest.json socialswitch-v0.5.2/
+          cp -r src/icons/ socialswitch-v0.5.2/
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4

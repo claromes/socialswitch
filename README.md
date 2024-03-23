@@ -1,8 +1,6 @@
-# ![Social Switch](icons/icon32.png "Social Switch") Social Switch
+# ![Social Switch](src/icons/icon32.png 'Social Switch') Social Switch
 
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/elmbjjhgiifenlhffpjcjfkjmilbbfki)](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
-
-
 
 Redirect Instagram and TikTok URLs to anonymous viewers. Access any profile, posts, tagged posts, stories profile or tags on Instagram or any profile on TikTok and the extension will redirect automatically to web viewers.
 
@@ -17,7 +15,7 @@ From **Instagram** URLs to **Picuki.com** or **Imginn.com**, and from **TikTok**
 
 - Web Store
 
-  [![Install from Chrome Web Store](assets/cws_badge.png "Install from Chrome Web Store")](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
+  [![Install from Chrome Web Store](assets/cws_badge.png 'Install from Chrome Web Store')](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
 
 - From the ZIP File
 
@@ -33,7 +31,7 @@ From **Instagram** URLs to **Picuki.com** or **Imginn.com**, and from **TikTok**
 
 Select a viewer option and enable or disable redirection through the popup.
 
-![Social Switch Popup](assets/popup.jpg "Social Switch Popup")
+![Social Switch Popup](assets/popup.jpg 'Social Switch Popup')
 
 For Instagram post URLs (`instagram.com/p/short_code`) and Instagram stories profile URLs (`instagram.com/stories/handle`), regardless of the redirection option, the extension will redirect to Imginn.com. This viewer uses the original post short code, and it has the option to view only stories via URL. However, for tag URLs (`instagram.com/explore/tags/tag_name`), irrespective of the redirection option, the extension will redirect to Picuki.com, as only this viewer supports tag search.
 
@@ -45,17 +43,17 @@ For Instagram post URLs (`instagram.com/p/short_code`) and Instagram stories pro
 
   `instagram.com/handle/tagged`
 
-  `instagram.com/stories/handle` *(only Imginn)*
+  `instagram.com/stories/handle` _(only Imginn)_
 
-  `instagram.com/p/short_code` *(only Imginn)*
+  `instagram.com/p/short_code` _(only Imginn)_
 
-  `instagram.com/handle/p/short_code` *(only Imginn)*
+  `instagram.com/handle/p/short_code` _(only Imginn)_
 
-  `instagram.com/reel/short_code` *(only Imginn)*
+  `instagram.com/reel/short_code` _(only Imginn)_
 
-  `instagram.com/handle/reel/short_code` *(only Imginn)*
+  `instagram.com/handle/reel/short_code` _(only Imginn)_
 
-  `instagram.com/explore/tags/tag_name` *(only Picuki)*
+  `instagram.com/explore/tags/tag_name` _(only Picuki)_
 
 - TikTok:
 
@@ -69,7 +67,13 @@ $ `cd socialswitch`
 
 The choice to use the `chrome.tabs` API is to avoid the blocking of redirection for certain paths by Instagram. Some tests still need to be conducted before implementing `chrome.webNavigation`, `chrome.webRequest` or `chrome.declarativeNetRequest`.
 
-[List of each type of URL for testing](urls.md).
+### Testing wih Puppeteer
+
+$ `npm install`
+
+$ `npm test`
+
+To test each group of URLs (Instagram profile, tagged, stories, post and tag, and TikTok profile), it is necessary to modify the constant containing the array with each type of URL in the script `test/test.js`.
 
 ## Roadmap
 
@@ -79,7 +83,6 @@ The choice to use the `chrome.tabs` API is to avoid the blocking of redirection 
   - [x] User
   - [ ] Video
 - [ ] Firefox Add-ons
-- [ ] Add Integration Testing
 
 ## Credits
 

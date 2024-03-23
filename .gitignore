@@ -1,1 +1,4 @@
 getDesc.js
+
+node_modules
+package-lock.json
