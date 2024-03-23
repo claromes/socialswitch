@@ -62,7 +62,7 @@ const tt_profile = [
 const group = eval(option);
 
 (async () => {
-  const pathToExtension = path.join(process.cwd(), './');
+  const pathToExtension = path.join(process.cwd(), './src');
   const browser = await puppeteer.launch({
     headless: false,
     args: [
