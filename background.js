@@ -35,7 +35,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     // Set storage option
     chrome.storage.local.set({ switchStateIG: switchStateIG, selectedOptionIG: selectedOptionIG });
 
-    if (switchStateIG) {
+    if (!switchStateIG) {
       let baseUrl;
 
       if (selectedOptionIG === 'picuki') {
@@ -211,7 +211,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     // Set storage option
     chrome.storage.local.set({ switchStateTT: switchStateTT, selectedOptionTT: selectedOptionTT });
 
-    if (switchStateTT) {
+    if (!switchStateTT) {
       let baseUrlTT;
 
       if (selectedOptionTT === 'urlebird') {

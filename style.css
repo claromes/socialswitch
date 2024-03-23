@@ -45,22 +45,22 @@ body {
   content: "";
   height: 16px;
   width: 16px;
-  left: 2px;
+  left: 38px;
   top: 2px;
   background-color: white;
   border-radius: 50%;
 }
 
-input:checked+.slider {
+input:not(:checked)+.slider {
   background: #ff5919;
 }
 
-input:checked+.slider-tt {
+input:not(:checked)+.slider-tt {
   background: #ff0a58;
 }
 
 input:checked+.slider:before {
-  transform: translateX(36px);
+  transform: translateX(-36px);
 }
 
 .option {
