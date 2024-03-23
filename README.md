@@ -7,9 +7,9 @@ Redirect Instagram and TikTok URLs to anonymous viewers. Access any profile, pos
 From **Instagram** URLs to **Picuki.com** or **Imginn.com**, and from **TikTok** URLs to **UrleBird.com** or **Xaller.com**.
 
 > [!NOTE]
-> For those seeking an alternative redirection for open-source instances, I recommend using the LibRedirect extension. The Social Switch extension aims to streamline access to web viewers that are more stable and facilitate the download of assets from both Instagram and TikTok. It targets users who prefer these anonymous but closed-source platforms.
+> For those seeking an alternative redirection for open-source instances, I recommend using the LibRedirect extension. The Social Switch extension aims to streamline access to web viewers that are more stable and facilitate the download of assets from both Instagram and TikTok. It targets users who prefer these anonymous but closed-source platforms. It's necessary to add that despite being anonymous for accessing Instagram and TikTok, the web services Picuki, Imginn, UrleBird, and Xaller are commercial and may track users. For this reason, it is recommended to use these services with VPNs, ad blockers, and other methods to inhibit trackers.
 >
-> This extension is not affiliated with Instagram, TikTok, Picuki, Imginn, UrleBird and Xaller.
+> This extension is not affiliated with Instagram, TikTok, Picuki, Imginn, UrleBird, and Xaller and does not take responsibility for any actions of these web services.
 
 ## Installation
 
