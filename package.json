@@ -1,0 +1,30 @@
+{
+  "name": "socialswitch",
+  "version": "0.5.2",
+  "description": "Redirect Instagram and TikTok URLs to anonymous viewers",
+  "type": "module",
+  "main": "test/test.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claromes/socialswitch.git"
+  },
+  "author": "Claromes",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/claromes/socialswitch/issues"
+  },
+  "homepage": "https://github.com/claromes/socialswitch#readme",
+  "dependencies": {
+    "path": "^0.12.7",
+    "puppeteer": "^22.6.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}
