@@ -65,8 +65,6 @@ $ `git clone git@github.com:claromes/socialswitch.git`
 
 $ `cd socialswitch`
 
-The choice to use the `chrome.tabs` API is to avoid the blocking of redirection for certain paths by Instagram. Some tests still need to be conducted before implementing `chrome.webNavigation`, `chrome.webRequest` or `chrome.declarativeNetRequest`.
-
 ### Testing wih Puppeteer
 
 To test each group of URLs (Instagram profile, tagged, stories, post and tag, and TikTok profile), it's necessary to pass the group as an option when running the script. The groups are: `ig_profile`, `ig_tagged`, `ig_post`, `ig_stories`, `ig_tags`, and `tt_profile`.
