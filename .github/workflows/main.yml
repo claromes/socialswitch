@@ -1,4 +1,4 @@
-name: Zip File
+name: ZIP File
 
 on:
   push:

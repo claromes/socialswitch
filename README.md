@@ -1,6 +1,6 @@
 # ![Social Switch](src/icons/icon32.png 'Social Switch') Social Switch
 
-[![Zip File](https://github.com/claromes/socialswitch/actions/workflows/main.yml/badge.svg)](https://github.com/claromes/socialswitch/actions/workflows/main.yml) [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/elmbjjhgiifenlhffpjcjfkjmilbbfki)](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
+[![ZIP File](https://github.com/claromes/socialswitch/actions/workflows/main.yml/badge.svg)](https://github.com/claromes/socialswitch/actions/workflows/main.yml) [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/elmbjjhgiifenlhffpjcjfkjmilbbfki)](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
 
 Redirect Instagram and TikTok URLs to anonymous viewers. Access any profile, posts, tagged posts, stories profile or tags on Instagram or any profile on TikTok and the extension will redirect automatically to web viewers.
 
