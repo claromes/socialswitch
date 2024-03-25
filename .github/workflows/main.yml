@@ -13,12 +13,21 @@ jobs:
 
       - name: Files
         run: |
-          mkdir socialswitch-v0.5.2
-          cp src/background.js src/popup.js src/popup.html src/supported.html src/style.css src/manifest.json socialswitch-v0.5.2/
-          cp -r src/icons/ socialswitch-v0.5.2/
+          mkdir socialswitch-v0.5.2-chrome
+          cp chrome/background.js chrome/popup.js chrome/popup.html chrome/supported.html chrome/style.css chrome/manifest.json socialswitch-v0.5.2-chrome/
+          cp -r chrome/icons/ socialswitch-v0.5.2-chrome/
+          mkdir socialswitch-v0.5.2-firefox
+          cp firefox/background.js firefox/popup.js firefox/popup.html firefox/supported.html firefox/style.css firefox/manifest.json socialswitch-v0.5.2-firefox/
+          cp -r firefox/icons/ socialswitch-v0.5.2-firefox/
 
-      - name: Upload Artifact
+      - name: Upload Chrome Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: socialswitch-v0.5.2
-          path: socialswitch-v0.5.2
+          name: socialswitch-v0.5.2-chrome
+          path: socialswitch-v0.5.2-chrome
+
+      - name: Upload Firefox Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: socialswitch-v0.5.2-firefox
+          path: socialswitch-v0.5.2-firefox
