@@ -2,10 +2,11 @@ body {
   color: #6e6e6e;
   margin: 10px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
 }
 
 .popup-container {
-  width: 190px;
+  width: 200px;
 }
 
 .switch-label {
@@ -16,6 +17,7 @@ body {
 
 .switch-text {
   margin-right: auto;
+  cursor: pointer;
 }
 
 .switch {
@@ -82,7 +84,7 @@ input:checked+.slider:before {
 
 .switch-container {
   margin: 5px 0;
-  padding: 10px;
+  padding: 10px 10px 3px 10px;
   background-color: #f5f5f5;
   border-radius: 5px;
 }
@@ -95,4 +97,8 @@ input:checked+.slider:before {
 img {
   vertical-align: bottom;
   padding-right: 5px;
+}
+
+#toggleDivIG, #toggleDivTT {
+  display: none;
 }

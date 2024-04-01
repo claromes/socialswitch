@@ -4,6 +4,22 @@ document.addEventListener('DOMContentLoaded', function () {
   const radioOptionsIG = document.querySelectorAll('.option');
   const radioOptionsTT = document.querySelectorAll('.option-tt');
 
+  // Open and close settings
+  const toggleIG = document.getElementById('toggleIG');
+  const toggleTT = document.getElementById('toggleTT');
+
+  toggleIG.addEventListener('click', function () {
+    const toggleDivIG = document.getElementById('toggleDivIG');
+    toggleDivIG.style.display =
+      toggleDivIG.style.display === 'grid' ? 'none' : 'grid';
+  });
+
+  toggleTT.addEventListener('click', function () {
+    const toggleDivTT = document.getElementById('toggleDivTT');
+    toggleDivTT.style.display =
+      toggleDivTT.style.display === 'grid' ? 'none' : 'grid';
+  });
+
   // Change switch
   switchElementIG.addEventListener('change', handleSwitchChangeIG);
   switchElementTT.addEventListener('change', handleSwitchChangeTT);
