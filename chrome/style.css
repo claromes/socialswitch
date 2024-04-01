@@ -4,12 +4,8 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.supported {
-  color: #333333;
-}
-
 .popup-container {
-  width: 175px;
+  width: 190px;
 }
 
 .switch-label {
@@ -79,6 +75,11 @@ input:checked+.slider:before {
   color: rgb(158, 158, 158);
 }
 
+.supported {
+  font-style: italic;
+  padding-left: 18px;
+}
+
 .switch-container {
   margin: 5px 0;
   padding: 10px;
@@ -88,13 +89,7 @@ input:checked+.slider:before {
 
 .option-container {
   display: grid;
-}
-
-.alt-text {
-  font-size: 11px;
-  color: rgb(158, 158, 158);
-  padding-left: 10px;
-  margin-bottom: 0.5em;
+  grid-row-gap: 5px;
 }
 
 img {

@@ -4,12 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const radioOptionsIG = document.querySelectorAll('.option');
   const radioOptionsTT = document.querySelectorAll('.option-tt');
 
-  // Open Supported URLs link
-  const openLink = document.getElementById('openLink');
-  openLink.addEventListener('click', function () {
-    window.open('supported.html', '_blank');
-  });
-
   // Change switch
   switchElementIG.addEventListener('change', handleSwitchChangeIG);
   switchElementTT.addEventListener('change', handleSwitchChangeTT);
