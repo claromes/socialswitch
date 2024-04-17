@@ -7,7 +7,9 @@ package-lock.json
 firefox/icons/
 firefox/style.css
 firefox/popup.html
+firefox/support.html
 
 chrome/icons/
 chrome/style.css
 chrome/popup.html
+chrome/support.html

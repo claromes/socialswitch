@@ -81,6 +81,12 @@ input:checked+.slider:before {
   padding-left: 18px;
 }
 
+.alt-text {
+  font-size: 11px;
+  padding-left: 10px;
+  color: rgb(158, 158, 158);
+}
+
 .switch-container {
   margin: 5px 0;
   padding: 10px 10px 3px 10px;
@@ -96,4 +102,8 @@ input:checked+.slider:before {
 img {
   vertical-align: bottom;
   padding-right: 5px;
+}
+
+.support-page {
+  color: #000;
 }
