@@ -17,7 +17,6 @@ body {
 
 .switch-text {
   margin-right: auto;
-  cursor: pointer;
 }
 
 .switch {
@@ -97,8 +96,4 @@ input:checked+.slider:before {
 img {
   vertical-align: bottom;
   padding-right: 5px;
-}
-
-#toggleDivIG, #toggleDivTT {
-  display: none;
 }

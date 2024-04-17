@@ -3,3 +3,11 @@ down.txt
 
 node_modules
 package-lock.json
+
+firefox/icons/
+firefox/style.css
+firefox/popup.html
+
+chrome/icons/
+chrome/style.css
+chrome/popup.html
