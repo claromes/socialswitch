@@ -21,7 +21,7 @@ This extension is not affiliated with Instagram, TikTok, Picuki, Imginn, UrleBir
 
   [![Get the add-on](assets/amo_badge.png 'Get the add-on')](https://addons.mozilla.org/en-US/firefox/addon/social-switch/)
 
-  [![Get the add-on for Android](assets/amo_android_badge.png 'Get the add-on for Android')](https://addons.mozilla.org/en-US/firefox/addon/social-switch/)
+  [![Get the add-on for Android](assets/amo_android_badge.png 'Get the add-on for Android')](https://addons.mozilla.org/en-US/android/addon/social-switch/)
 
 - Chrome Web Store
 
@@ -32,6 +32,9 @@ This extension is not affiliated with Instagram, TikTok, Picuki, Imginn, UrleBir
   - **Firefox for Desktop**
 
     - Download the [socialswitch-v1.0-firefox.zip](https://github.com/claromes/socialswitch/releases/tag/v1.0) file
+    - Open Firefox and navigate to `about:addons`
+    - From the settings cog, press "Install Add-on From File..." (located at the top-right corner)
+    - Select the extension folder
 
   - **Chrome**
 
@@ -77,23 +80,31 @@ For Instagram post URLs (`instagram.com/p/short_code`) and Instagram stories pro
 
 ## Development
 
+### Requirement
+
+Node.js 20 or higher
+
 $ `git clone git@github.com:claromes/socialswitch.git`
 
 $ `cd socialswitch`
+
+$ `npm install`
+
+### Firefox for Android
+
+[Set up your computer and Android emulator or device](https://extensionworkshop.com/documentation/develop/developing-extensions-for-firefox-for-android/).
+
+Then, run:
+
+$ `cd firefox-android`
+
+$ `web-ext run -t firefox-android --adb-device <CODE> --firefox-apk org.mozilla.fenix`
 
 ### Testing wih Puppeteer
 
 To test each group of URLs (Instagram profile, tagged, stories, post and tag, and TikTok profile), it's necessary to pass the group as an option when running the script. The groups are: `ig_profile`, `ig_tagged`, `ig_post`, `ig_stories`, `ig_tags`, and `tt_profile`.
 
-#### Requirement
-
-Node.js 20 or higher
-
-#### Running
-
-Install the dependencies and then run the test with the desired group:
-
-$ `npm install`
+Run the test with the desired group:
 
 $ `npm test [group]`
 

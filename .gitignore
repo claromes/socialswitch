@@ -9,6 +9,11 @@ firefox/style.css
 firefox/popup.html
 firefox/support.html
 
+firefox-android/icons/
+firefox-android/background.js
+firefox-android/popup.js
+firefox-android/support.html
+
 chrome/icons/
 chrome/style.css
 chrome/popup.html

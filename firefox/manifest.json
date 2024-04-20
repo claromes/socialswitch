@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Social Switch - Instagram and TikTok viewers",
+  "name": "Social Switch - Anonymous Instagram and TikTok",
   "version": "1.0",
   "description": "Redirect Instagram and TikTok URLs to anonymous viewers",
   "homepage_url": "https://github.com/claromes/socialswitch",
@@ -37,7 +37,7 @@
   "background": {
     "scripts": ["background.js"]
   },
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "support@claromes.com",
       "strict_min_version": "123.0"
