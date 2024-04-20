@@ -1,31 +1,47 @@
-# ![Social Switch](src/icons/icon32.png 'Social Switch') Social Switch
+# ![Social Switch](icons/icon32.png 'Social Switch') Social Switch
 
-[![ZIP File](https://github.com/claromes/socialswitch/actions/workflows/main.yml/badge.svg)](https://github.com/claromes/socialswitch/actions/workflows/main.yml) [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/elmbjjhgiifenlhffpjcjfkjmilbbfki)](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
+[![ZIP File](https://github.com/claromes/socialswitch/actions/workflows/main.yml/badge.svg)](https://github.com/claromes/socialswitch/actions/workflows/main.yml) [![Mozilla Add-on Version](https://img.shields.io/amo/v/social-switch)](https://addons.mozilla.org/en-US/firefox/addon/social-switch)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/elmbjjhgiifenlhffpjcjfkjmilbbfki)](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
 
 Redirect Instagram and TikTok URLs to anonymous viewers. Access any profile, posts, tagged posts, stories profile or tags on Instagram or any profile on TikTok and the extension will redirect automatically to web viewers.
 
 From **Instagram** URLs to **Picuki.com** or **Imginn.com**, and from **TikTok** URLs to **UrleBird.com** or **Xaller.com**.
 
-> [!NOTE]
-> For those seeking an alternative redirection for open-source instances, I recommend using the LibRedirect extension. The Social Switch extension aims to streamline access to web viewers that are more stable and facilitate the download of assets from both Instagram and TikTok. It targets users who prefer these anonymous but closed-source platforms. It's necessary to add that despite being anonymous for accessing Instagram and TikTok, the web services Picuki, Imginn, UrleBird, and Xaller are commercial and may track users. For this reason, it is recommended to use these services with VPNs, ad blockers, and other methods to inhibit trackers.
->
-> This extension is not affiliated with Instagram, TikTok, Picuki, Imginn, UrleBird, and Xaller and does not take responsibility for any actions of these web services.
+## Note
+
+For those seeking an alternative redirection for open-source instances, I recommend using the LibRedirect extension. The Social Switch extension aims to streamline access to web viewers that are more stable and facilitate the download of assets from both Instagram and TikTok. It targets users who prefer these anonymous but closed-source platforms.
+
+It's necessary to add that despite being anonymous for accessing Instagram and TikTok, the web services Picuki, Imginn, UrleBird, and Xaller are commercial and may track users. For this reason, it is recommended to use these services with VPNs, ad blockers, and other methods to inhibit trackers.
+
+This extension is not affiliated with Instagram, TikTok, Picuki, Imginn, UrleBird, and Xaller and does not take responsibility for any actions of these web services.
 
 ## Installation
 
-- Web Store
+- Firefox Add-ons
+
+  [![Get the add-on](assets/amo_badge.png 'Get the add-on')](https://addons.mozilla.org/en-US/firefox/addon/social-switch/)
+
+  [![Get the add-on for Android](assets/amo_android_badge.png 'Get the add-on for Android')](https://addons.mozilla.org/en-US/firefox/addon/social-switch/)
+
+- Chrome Web Store
 
   [![Install from Chrome Web Store](assets/cws_badge.png 'Install from Chrome Web Store')](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
 
 - From the ZIP File
 
-  - Download the [socialswitch-v0.5.2.zip](https://github.com/claromes/socialswitch/releases/tag/v0.5.2) file
-  - Extract the ZIP file
-  - Open Google Chrome and navigate to `chrome://extensions`
-  - Enable "Developer Mode" (located at the top-right corner)
-  - Click on the "Load Unpacked" button (located at the top-left corner)
-  - Navigate to the directory where you extracted the ZIP file containing the extension
-  - Select the extension folder
+  - **Firefox for Desktop**
+
+    - Download the [socialswitch-v1.0-firefox.zip](https://github.com/claromes/socialswitch/releases/tag/v1.0) file
+
+  - **Chrome**
+
+    - Download the [socialswitch-v1.0-chrome.zip](https://github.com/claromes/socialswitch/releases/tag/v1.0) file
+    - Extract the ZIP file
+    - Open Google Chrome and navigate to `chrome://extensions`
+    - Enable "Developer Mode" (located at the top-right corner)
+    - Click on the "Load Unpacked" button (located at the top-left corner)
+    - Navigate to the directory where you extracted the ZIP file containing the extension
+    - Select the extension folder
 
 ## Usage
 
@@ -92,7 +108,7 @@ To test Instagram profile URLs, run the command `npm test ig_profile`.
 - [ ] TikTok options
   - [x] User
   - [ ] Video
-- [ ] Firefox extension
+- [x] Firefox extension
 
 ## Contributing
 
