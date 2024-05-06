@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Social Switch - Anonymous Instagram and TikTok",
+  "name": "Social Switch: Anonymous Instagram and TikTok",
   "version": "1.0",
   "description": "Redirect Instagram and TikTok URLs to anonymous viewers",
   "homepage_url": "https://github.com/claromes/socialswitch",

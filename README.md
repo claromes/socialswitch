@@ -1,6 +1,6 @@
-# ![Social Switch](icons/icon32.png 'Social Switch') Social Switch
+# ![Social Switch](chrome/icons/icon32.png 'Social Switch') Social Switch
 
-[![ZIP File](https://github.com/claromes/socialswitch/actions/workflows/main.yml/badge.svg)](https://github.com/claromes/socialswitch/actions/workflows/main.yml) [![Mozilla Add-on Version](https://img.shields.io/amo/v/social-switch)](https://addons.mozilla.org/en-US/firefox/addon/social-switch)
+[![ZIP Files](https://github.com/claromes/socialswitch/actions/workflows/main.yml/badge.svg)](https://github.com/claromes/socialswitch/actions/workflows/main.yml) [![Mozilla Add-on Version](https://img.shields.io/amo/v/social-switch)](https://addons.mozilla.org/en-US/firefox/addon/social-switch)
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/elmbjjhgiifenlhffpjcjfkjmilbbfki)](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
 
 Redirect Instagram and TikTok URLs to anonymous viewers. Access any profile, posts, tagged posts, stories profile or tags on Instagram or any profile on TikTok and the extension will redirect automatically to web viewers.
@@ -90,6 +90,16 @@ $ `cd socialswitch`
 
 $ `npm install`
 
+### Common files
+
+The files for each browser are in their respective directories.
+
+The files for **Google Chrome** are all in the `chrome` directory, and some are shared with other browsers. Additionally, some of the files for **Firefox** are shared with **Firefox for Android**.
+
+- The common files between **Google Chrome** and **Firefox** are in the `chrome` directory and consist of `chrome/popup.html`, `chrome/style.css`, `chrome/support.html`, and the `chrome/icons` directory.
+- The common files between **Google Chrome** and **Firefox for Android** are in the `chrome` directory and consist of `chrome/style.css`, and the `/icons` directory.
+- The common files between **Firefox** and **Firefox for Android** are in the `firefox` directory and consist of `firefox/background.js` and `firefox/popup.js`.
+
 ### Firefox for Android
 
 [Set up your computer and Android emulator or device](https://extensionworkshop.com/documentation/develop/developing-extensions-for-firefox-for-android/).
@@ -101,6 +111,8 @@ $ `cd firefox-android`
 $ `web-ext run -t firefox-android --adb-device <CODE> --firefox-apk org.mozilla.fenix`
 
 ### Testing wih Puppeteer
+
+Only for Firefox for Desktop and Google Chrome.
 
 To test each group of URLs (Instagram profile, tagged, stories, post and tag, and TikTok profile), it's necessary to pass the group as an option when running the script. The groups are: `ig_profile`, `ig_tagged`, `ig_post`, `ig_stories`, `ig_tags`, and `tt_profile`.
 
