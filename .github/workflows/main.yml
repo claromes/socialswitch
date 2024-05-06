@@ -20,7 +20,7 @@ jobs:
           cp firefox/background.js firefox/manifest.json firefox/popup.js chrome/popup.html chrome/support.html chrome/style.css socialswitch-v1.0-firefox/
           cp -r chrome/icons/ socialswitch-v1.0-firefox/
           mkdir socialswitch-v1.0-firefox-android
-          cp firefox-android/manifest.json firefox-android/popup.html firefox-android/support.html firefox-android/style.css firefox-android/style-firefox-android.css firefox/background.js firefox/popup.js socialswitch-v1.0-firefox-android/
+          cp firefox-android/manifest.json firefox-android/popup.html firefox-android/support.html firefox-android/style-firefox-android.css firefox/background.js firefox/popup.js chrome/style.css socialswitch-v1.0-firefox-android/
           cp -r chrome/icons/ socialswitch-v1.0-firefox-android/
 
       - name: Upload Chrome Artifact
