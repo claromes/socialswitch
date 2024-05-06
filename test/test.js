@@ -1,10 +1,19 @@
 import puppeteer from 'puppeteer';
 import path from 'path';
+import webExt from 'web-ext';
 
 const option = process.argv[2];
+const browserOption = process.argv[3];
 
 if (!option) {
   console.error('Please provide a value for the group variable.');
+  process.exit(1);
+}
+
+if (browserOption !== 'chrome' && browserOption !== 'firefox') {
+  console.error(
+    'The value for the browser variable must be firefox or chrome.'
+  );
   process.exit(1);
 }
 
@@ -61,8 +70,8 @@ const tt_profile = [
 
 const group = eval(option);
 
-(async () => {
-  const pathToExtension = path.join(process.cwd(), './src');
+async function testChrome(group) {
+  const pathToExtension = path.join(process.cwd(), './chrome');
   const browser = await puppeteer.launch({
     headless: false,
     args: [
@@ -77,4 +86,23 @@ const group = eval(option);
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: 'domcontentloaded' });
   }
-})();
+}
+
+async function testFirefox(group) {
+  const pathToExtension = path.join(process.cwd(), './firefox');
+  const options = {
+    sourceDir: pathToExtension,
+    firefox: 'C:\\Program Files\\Mozilla Firefox\\firefox.exe',
+    startUrl: group
+  };
+
+  console.log('The tested URLs are:', group);
+
+  await webExt.cmd.run(options);
+}
+
+if (browserOption === 'chrome') {
+  testChrome(group);
+} else if (browserOption === 'firefox') {
+  testFirefox(group);
+}

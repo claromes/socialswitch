@@ -112,17 +112,19 @@ $ `web-ext run -t firefox-android --adb-device <CODE> --firefox-apk org.mozilla.
 
 ### Testing wih Puppeteer
 
-Only for Firefox for Desktop and Google Chrome.
+To test each group of URLs (Instagram profile, tagged, stories, post and tag, and TikTok profile), it's necessary to pass the group and the browser as options when running the script. This applies only to Firefox for Desktop and Google Chrome.
 
-To test each group of URLs (Instagram profile, tagged, stories, post and tag, and TikTok profile), it's necessary to pass the group as an option when running the script. The groups are: `ig_profile`, `ig_tagged`, `ig_post`, `ig_stories`, `ig_tags`, and `tt_profile`.
+The groups are: `ig_profile`, `ig_tagged`, `ig_post`, `ig_stories`, `ig_tags`, and `tt_profile`.
+
+The browsers are: `chrome`, and `firefox`.
 
 Run the test with the desired group:
 
-$ `npm test [group]`
+$ `npm test [group] [browser]`
 
 #### Example
 
-To test Instagram profile URLs, run the command `npm test ig_profile`.
+To test Instagram profile URLs on Firefox, run the command `npm test ig_profile firefox`.
 
 ## Roadmap
 
