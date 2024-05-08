@@ -178,7 +178,7 @@ browser.webRequest.onBeforeRequest.addListener(
             // https://instagram.com/<handle>/tagged
             // https://instagram.com/<handle>/tagged/*
             const regexTagged =
-              /^https:\/\/www\.instagram\.com\/([^/]+)\/tagged\/?\??$/;
+              /^https:\/\/www\.instagram\.com\/([^/]+)\/tagged\/?\??(?:hl=[^&]+)?$/;
             const matchTagged = details.url.match(regexTagged);
 
             if (matchTagged) {
