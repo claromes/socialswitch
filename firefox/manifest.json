@@ -39,7 +39,7 @@
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "support@claromes.com",
+      "id": "socialswitch@claromes.com",
       "strict_min_version": "123.0"
     },
     "gecko_android": {
