@@ -92,13 +92,9 @@ $ `npm install`
 
 ### Common files
 
-The files for each browser are in their respective directories.
+The files for each browser are in their respective directories. The files for **Google Chrome** are all in the `chrome` directory, and some are shared with **Firefox**.
 
-The files for **Google Chrome** are all in the `chrome` directory, and some are shared with other browsers. Additionally, some of the files for **Firefox** are shared with **Firefox for Android**.
-
-- The common files between **Google Chrome** and **Firefox** are in the `chrome` directory and consist of `chrome/popup.html`, `chrome/style.css`, `chrome/support.html`, and the `chrome/icons` directory.
-- The common files between **Google Chrome** and **Firefox for Android** are in the `chrome` directory and consist of `chrome/style.css`, and the `/icons` directory.
-- The common files between **Firefox** and **Firefox for Android** are in the `firefox` directory and consist of `firefox/background.js` and `firefox/popup.js`.
+The common files between **Google Chrome** and **Firefox** are in the `chrome` directory and consist of `chrome/popup.html`, `chrome/support.html`, and the `chrome/icons` directory.
 
 ### Firefox for Android
 
@@ -106,7 +102,7 @@ The files for **Google Chrome** are all in the `chrome` directory, and some are 
 
 Then, run:
 
-$ `cd firefox-android`
+$ `cd firefox`
 
 $ `web-ext run -t firefox-android --adb-device <CODE> --firefox-apk org.mozilla.fenix`
 

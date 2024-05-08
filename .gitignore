@@ -5,11 +5,5 @@ node_modules
 package-lock.json
 
 firefox/icons/
-firefox/style.css
 firefox/popup.html
 firefox/support.html
-
-firefox-android/icons/
-firefox-android/style.css
-firefox-android/popup.js
-firefox-android/background.js
