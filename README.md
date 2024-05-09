@@ -1,7 +1,7 @@
 # ![Social Switch](chrome/icons/icon32.png 'Social Switch') Social Switch
 
-[![ZIP Files](https://github.com/claromes/socialswitch/actions/workflows/main.yml/badge.svg)](https://github.com/claromes/socialswitch/actions/workflows/main.yml) [![Mozilla Add-on Version](https://img.shields.io/amo/v/social-switch)](https://addons.mozilla.org/en-US/firefox/addon/social-switch)
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/elmbjjhgiifenlhffpjcjfkjmilbbfki)](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
+[![ZIP Files](https://github.com/claromes/socialswitch/actions/workflows/main.yml/badge.svg)](https://github.com/claromes/socialswitch/actions/workflows/main.yml) [![Mozilla Add-on Users](https://img.shields.io/amo/users/social-switch?label=mozilla%20add-on%20users)](https://addons.mozilla.org/en-US/firefox/addon/social-switch)
+[![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/elmbjjhgiifenlhffpjcjfkjmilbbfki?label=chrome%20web%20store%20users)](https://chrome.google.com/webstore/detail/social-switch/elmbjjhgiifenlhffpjcjfkjmilbbfki)
 
 Redirect Instagram and TikTok URLs to anonymous viewers. Access any profile, posts, tagged posts, stories profile or tags on Instagram or any profile on TikTok and the extension will redirect automatically to web viewers.
 
