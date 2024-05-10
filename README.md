@@ -106,7 +106,7 @@ $ `cd firefox`
 
 $ `web-ext run -t firefox-android --adb-device <CODE> --firefox-apk org.mozilla.fenix`
 
-### Testing wih Puppeteer
+### Testing with Puppeteer
 
 To test each group of URLs (Instagram profile, tagged, stories, post and tag, and TikTok profile), it's necessary to pass the group and the browser as options when running the script. This applies only to Firefox for Desktop and Google Chrome.
 
