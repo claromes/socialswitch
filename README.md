@@ -34,7 +34,7 @@ This extension is not affiliated with Instagram, TikTok, Picuki, Imginn, UrleBir
     - Download the [socialswitch-v1.0-firefox.zip](https://github.com/claromes/socialswitch/releases/tag/v1.0) file
     - Open Firefox and navigate to `about:addons`
     - From the settings cog, press "Install Add-on From File..." (located at the top-right corner)
-    - Select the extension folder
+    - Select the extension file
 
   - **Chrome**
 
