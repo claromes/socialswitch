@@ -1,4 +1,4 @@
-name: ZIP File
+name: ZIP Files
 
 on:
   push:
@@ -13,12 +13,21 @@ jobs:
 
       - name: Files
         run: |
-          mkdir socialswitch-v0.5.2
-          cp src/background.js src/popup.js src/popup.html src/supported.html src/style.css src/manifest.json socialswitch-v0.5.2/
-          cp -r src/icons/ socialswitch-v0.5.2/
+          mkdir socialswitch-v1.0-chrome
+          cp chrome/background.js chrome/manifest.json chrome/popup.js chrome/popup.html chrome/support.html chrome/style.css socialswitch-v1.0-chrome/
+          cp -r chrome/icons/ socialswitch-v1.0-chrome/
+          mkdir socialswitch-v1.0-firefox
+          cp firefox/background.js firefox/manifest.json firefox/popup.js firefox/style.css chrome/popup.html chrome/support.html socialswitch-v1.0-firefox/
+          cp -r chrome/icons/ socialswitch-v1.0-firefox/
 
-      - name: Upload Artifact
+      - name: Upload Chrome Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: socialswitch-v0.5.2
-          path: socialswitch-v0.5.2
+          name: socialswitch-v1.0-chrome
+          path: socialswitch-v1.0-chrome
+
+      - name: Upload Firefox Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: socialswitch-v1.0-firefox
+          path: socialswitch-v1.0-firefox

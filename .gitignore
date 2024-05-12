@@ -1,4 +1,9 @@
 getDesc.js
+down.txt
 
 node_modules
 package-lock.json
+
+firefox/icons/
+firefox/popup.html
+firefox/support.html
