@@ -16,9 +16,9 @@ jobs:
           mkdir socialswitch-v1.0-chrome
           cp chrome/background.js chrome/manifest.json chrome/popup.js chrome/popup.html chrome/support.html chrome/style.css socialswitch-v1.0-chrome/
           cp -r chrome/icons/ socialswitch-v1.0-chrome/
-          mkdir socialswitch-v1.0-firefox
+          mkdir socialswitch-v1.1-firefox
           cp firefox/background.js firefox/manifest.json firefox/popup.js firefox/style.css chrome/popup.html chrome/support.html socialswitch-v1.0-firefox/
-          cp -r chrome/icons/ socialswitch-v1.0-firefox/
+          cp -r chrome/icons/ socialswitch-v1.1-firefox/
 
       - name: Upload Chrome Artifact
         uses: actions/upload-artifact@v4
@@ -29,5 +29,5 @@ jobs:
       - name: Upload Firefox Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: socialswitch-v1.0-firefox
-          path: socialswitch-v1.0-firefox
+          name: socialswitch-v1.1-firefox
+          path: socialswitch-v1.1-firefox
