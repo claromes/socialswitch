@@ -39,6 +39,10 @@ browser.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 browser.webRequest.onBeforeRequest.addListener(
   function (details) {
+    if(details.method === 'POST') {
+      // let the request go through unchanged
+      return {};
+    }
     // -- Instagram --
     // Get storage option
     browser.storage.local.get(
