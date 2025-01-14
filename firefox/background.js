@@ -39,10 +39,6 @@ browser.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 browser.webRequest.onBeforeRequest.addListener(
   function (details) {
-    if(details.method === 'POST') {
-      // let the request go through unchanged
-      return {};
-    }
     // -- Instagram --
     // Get storage option
     browser.storage.local.get(
@@ -83,6 +79,7 @@ browser.webRequest.onBeforeRequest.addListener(
             }
 
             const handleProfile = details.url.split('/')[3];
+            const pathSegment = details.url.split('/')[4];
             const handleProfileWithPost = details.url.split('/')[4];
 
             // Ignore post, stories, reel, TV and explore URLs
@@ -92,9 +89,11 @@ browser.webRequest.onBeforeRequest.addListener(
               handleProfileWithPost !== 'reel' &&
               handleProfile !== 'stories' &&
               handleProfile !== 's' &&
-              handleProfile !== 'reel' &&
               handleProfile !== 'tv' &&
-              handleProfile !== 'explore'
+              handleProfile !== 'explore' &&
+              // Firefox redirection issue
+              handleProfile !== 'ajax' &&
+              !pathSegment.includes('bz?')
             ) {
               // https://instagram.com/<handle>
               // https://instagram.com/<handle>/

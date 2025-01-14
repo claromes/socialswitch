@@ -31,14 +31,14 @@ This extension is not affiliated with Instagram, TikTok, Picuki, Imginn, UrleBir
 
   - **Firefox for Desktop**
 
-    - Download the [socialswitch-v1.0-firefox.zip](https://github.com/claromes/socialswitch/releases/tag/v1.0) file
+    - Download the [socialswitch-firefox.xpi](https://github.com/claromes/socialswitch/releases) file
     - Open Firefox and navigate to `about:addons`
     - From the settings cog, press "Install Add-on From File..." (located at the top-right corner)
     - Select the extension file
 
   - **Chrome**
 
-    - Download the [socialswitch-v1.0-chrome.zip](https://github.com/claromes/socialswitch/releases/tag/v1.0) file
+    - Download the [socialswitch-chrome.zip](https://github.com/claromes/socialswitch/releases) file
     - Extract the ZIP file
     - Open Google Chrome and navigate to `chrome://extensions`
     - Enable "Developer Mode" (located at the top-right corner)
