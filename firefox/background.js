@@ -89,6 +89,7 @@ browser.webRequest.onBeforeRequest.addListener(
               handleProfileWithPost !== 'reel' &&
               handleProfile !== 'stories' &&
               handleProfile !== 's' &&
+              handleProfile !== 'reel' &&
               handleProfile !== 'tv' &&
               handleProfile !== 'explore' &&
               // Firefox redirection issue
