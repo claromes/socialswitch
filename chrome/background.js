@@ -57,6 +57,8 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
         if (selectedOptionIG === 'imginn') {
           baseUrl = 'https://imginn.com';
+        } else if (selectedOptionIG === 'storynavigation') {
+          baseUrl = 'https://storynavigation.com';
         }
 
         // https://www.instagram.com/*
@@ -67,6 +69,8 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           if (baseUrl.includes('imginn')) {
             profile = '/';
             profileTagged = '/tagged/';
+          } else if (baseUrl.includes('storynavigation')) {
+            profile = '/user/';
           }
 
           const handleProfile = tab.url.split('/')[3];
@@ -161,6 +165,18 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             const redirectUrlLogin = `${baseUrl}${profile}${handleLogin}`;
 
             chrome.tabs.update(tabId, { url: redirectUrlLogin });
+          }
+
+          // https://www.instagram.com/accounts/login/?next=%2F<handle>%2F&source=omni_redirect
+          const regexLoginOmni =
+            /^https:\/\/www\.instagram\.com\/accounts\/login\/\?next=%2F([^/?]+)%2F&source=omni_redirect/;
+          const matchLoginOmni = tab.url.match(regexLoginOmni);
+
+          if (matchLoginOmni) {
+            const handleLoginOmni = matchLoginOmni[1];
+            const redirectUrlLoginOmni = `${baseUrl}${profile}${handleLoginOmni}`;
+
+            chrome.tabs.update(tabId, { url: redirectUrlLoginOmni });
           }
 
           // https://instagram.com/<handle>/tagged
