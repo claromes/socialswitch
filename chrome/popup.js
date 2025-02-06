@@ -45,13 +45,20 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Storage redirection
-  chrome.storage.sync.get({ selectedOptionIG: 'picuki' }, function (data) {
+  chrome.storage.sync.get({ selectedOptionIG: 'imginn' }, function (data) {
     const selectedOptionIG = data.selectedOptionIG;
     document.querySelector(`input[value="${selectedOptionIG}"]`).checked = true;
   });
 
-  chrome.storage.sync.get({ selectedOptionTT: 'urlebird' }, function (data) {
-    const selectedOptionTT = data.selectedOptionTT;
+  // Update TikTok option
+  let selectedOptionTT = 'picuki';
+
+  if (selectedOptionTT !== 'picuki') {
+    chrome.storage.sync.set({ selectedOptionTT: 'picuki' });
+  }
+
+  chrome.storage.sync.get({ selectedOptionTT: 'picuki' }, function (data) {
+    selectedOptionTT = data.selectedOptionTT;
     document.querySelector(`input[value="${selectedOptionTT}"]`).checked = true;
   });
 

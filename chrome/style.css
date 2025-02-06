@@ -97,6 +97,7 @@ input:checked+.slider:before {
 .option-container {
   display: grid;
   grid-row-gap: 5px;
+  margin-bottom: 10px;
 }
 
 img {

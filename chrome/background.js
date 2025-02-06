@@ -44,7 +44,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     ['switchStateIG', 'selectedOptionIG'],
     function (result) {
       switchStateIG = result.switchStateIG || false;
-      selectedOptionIG = result.selectedOptionIG || 'picuki';
+      selectedOptionIG = result.selectedOptionIG || 'imginn';
 
       // Set storage option
       chrome.storage.local.set({
@@ -55,10 +55,10 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
       if (!switchStateIG) {
         let baseUrl;
 
-        if (selectedOptionIG === 'picuki') {
-          baseUrl = 'https://picuki.com';
-        } else if (selectedOptionIG === 'imginn') {
+        if (selectedOptionIG === 'imginn') {
           baseUrl = 'https://imginn.com';
+        } else if (selectedOptionIG === 'storynavigation') {
+          baseUrl = 'https://storynavigation.com';
         }
 
         // https://www.instagram.com/*
@@ -66,12 +66,11 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           let profile;
           let profileTagged;
 
-          if (baseUrl.includes('picuki')) {
-            profile = '/profile/';
-            profileTagged = '/profile-tagged/';
-          } else if (baseUrl.includes('imginn')) {
+          if (baseUrl.includes('imginn')) {
             profile = '/';
             profileTagged = '/tagged/';
+          } else if (baseUrl.includes('storynavigation')) {
+            profile = '/user/';
           }
 
           const handleProfile = tab.url.split('/')[3];
@@ -168,6 +167,18 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             chrome.tabs.update(tabId, { url: redirectUrlLogin });
           }
 
+          // https://www.instagram.com/accounts/login/?next=%2F<handle>%2F&source=omni_redirect
+          const regexLoginOmni =
+            /^https:\/\/www\.instagram\.com\/accounts\/login\/\?next=%2F([^/?]+)%2F&source=omni_redirect/;
+          const matchLoginOmni = tab.url.match(regexLoginOmni);
+
+          if (matchLoginOmni) {
+            const handleLoginOmni = matchLoginOmni[1];
+            const redirectUrlLoginOmni = `${baseUrl}${profile}${handleLoginOmni}`;
+
+            chrome.tabs.update(tabId, { url: redirectUrlLoginOmni });
+          }
+
           // https://instagram.com/<handle>/tagged
           // https://instagram.com/<handle>/tagged/*
           const regexTagged =
@@ -218,21 +229,6 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
             chrome.tabs.update(tabId, { url: redirectUrlStoryLogin });
           }
-
-          // Only Picuki
-          // https://www.instagram.com/explore/tags/<tag_name>
-          // https://www.instagram.com/explore/tags/<tag_name>/*
-          const regexTags =
-            /^https:\/\/www\.instagram\.com\/explore\/tags\/([^/]+)/;
-          const matchTags = tab.url.match(regexTags);
-
-          if (matchTags) {
-            baseUrl = 'https://picuki.com';
-            const tagName = matchTags[1];
-            const redirectUrlTags = `${baseUrl}/tag/${tagName}`;
-
-            chrome.tabs.update(tabId, { url: redirectUrlTags });
-          }
         }
       }
     }
@@ -244,7 +240,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     ['switchStateTT', 'selectedOptionTT'],
     function (result) {
       switchStateTT = result.switchStateTT || false;
-      selectedOptionTT = result.selectedOptionTT || 'urlebird';
+      selectedOptionTT = result.selectedOptionTT || 'picuki';
 
       // Set storage option
       chrome.storage.local.set({
@@ -253,27 +249,10 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
       });
 
       if (!switchStateTT) {
-        let baseUrlTT;
-
-        if (selectedOptionTT === 'urlebird') {
-          baseUrlTT = 'https://urlebird.com/';
-        } else if (selectedOptionTT === 'xaller') {
-          baseUrlTT = 'https://xaller.com/';
-        }
+        const baseUrlTT = 'https://picuki.com';
 
         // https://www.tiktok.com/*
         if (tab.url && tab.url.startsWith('https://www.tiktok.com/')) {
-          let profile;
-          let slash;
-
-          if (baseUrlTT.includes('urlebird')) {
-            profile = 'user/';
-            slash = '/';
-          } else if (baseUrlTT.includes('xaller')) {
-            profile = '?username=@';
-            slash = '';
-          }
-
           const handleProfileWithAt = tab.url.split('/')[3];
           let handleProfileTT = handleProfileWithAt.replace(/^@/, '');
 
@@ -295,9 +274,20 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             isNotProfile &&
             !matchLongCode
           ) {
-            const redirectTTUrl = `${baseUrlTT}${profile}${handleProfileTT}${slash}`;
+            const redirectTTUrl = `${baseUrlTT}/profile/${handleProfileTT}`;
 
             chrome.tabs.update(tabId, { url: redirectTTUrl });
+          }
+
+          // https://www.tiktok.com/@<handle>/video/<video_id>
+          if (
+            handleProfileWithAt.startsWith('@') &&
+            isNotProfile &&
+            matchLongCode
+          ) {
+            const redirectVideoTTUrl = `${baseUrlTT}/media/${matchLongCode[1]}`;
+
+            chrome.tabs.update(tabId, { url: redirectVideoTTUrl });
           }
         }
       }
