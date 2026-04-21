@@ -92,8 +92,10 @@ browser.webRequest.onBeforeRequest.addListener(
               handleProfile !== 'reel' &&
               handleProfile !== 'tv' &&
               handleProfile !== 'explore' &&
-              // Firefox redirection issue
+              // Firefox redirection issue (#14)
               handleProfile !== 'ajax' &&
+              // Firefox redirection issue (#21)
+              handleProfile !== 'graphql' &&
               !pathSegment.includes('bz?')
             ) {
               // https://instagram.com/<handle>
@@ -177,6 +179,17 @@ browser.webRequest.onBeforeRequest.addListener(
               const redirectUrlLogin = `${baseUrl}${profile}${handleLogin}/`;
 
               browser.tabs.update(details.tabId, { url: redirectUrlLogin });
+            }
+
+            // https://www.instagram.com/accounts/login/?next=%2F<handle>%2F&source=omni_redirect
+            const regexLoginOmni = /^https:\/\/www\.instagram\.com\/accounts\/login\/\?next=%2F([^%]+)%2F/;
+            const matchLoginOmni = details.url.match(regexLoginOmni);
+
+            if (matchLoginOmni) {
+              const handleLoginOmni = matchLoginOmni[1];
+              const redirectUrlLoginOmni = `${baseUrl}${profile}${handleLoginOmni}/`;
+
+              browser.tabs.update(details.tabId, { url: redirectUrlLoginOmni });
             }
 
             // https://instagram.com/<handle>/tagged
