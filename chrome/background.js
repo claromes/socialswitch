@@ -91,7 +91,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             // https://instagram.com/<handle>
             // https://instagram.com/<handle>/
             // https://instagram.com/<handle>/?hl=en
-            const redirectUrl = `${baseUrl}${profile}${handleProfile}`;
+            const redirectUrl = `${baseUrl}${profile}${handleProfile}/`;
 
             chrome.tabs.update(tabId, { url: redirectUrl });
           } else if (handleProfile === 'p' || handleProfile === 'reel') {
@@ -110,7 +110,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             if (matchPost || matchPostReel) {
               baseUrl = 'https://imginn.com';
               const postCode = matchPost ? matchPost[1] : matchPostReel[1];
-              const redirectUrlPost = `${baseUrl}/p/${postCode}`;
+              const redirectUrlPost = `${baseUrl}/p/${postCode}/`;
 
               chrome.tabs.update(tabId, { url: redirectUrlPost });
             }
@@ -135,7 +135,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
               const handlePostCode = matchHandlePost
                 ? matchHandlePost[1]
                 : matchHandlePostReel[1];
-              const redirectUrlHandlePost = `${baseUrl}/p/${handlePostCode}`;
+              const redirectUrlHandlePost = `${baseUrl}/p/${handlePostCode}/`;
 
               chrome.tabs.update(tabId, { url: redirectUrlHandlePost });
             }
@@ -150,7 +150,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             if (matchStory) {
               baseUrl = 'https://imginn.com';
               const handleStory = matchStory[1];
-              const redirectUrlStory = `${baseUrl}/stories/${handleStory}`;
+              const redirectUrlStory = `${baseUrl}/stories/${handleStory}/`;
 
               chrome.tabs.update(tabId, { url: redirectUrlStory });
             }
@@ -163,7 +163,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
           if (matchLogin) {
             const handleLogin = matchLogin[1];
-            const redirectUrlLogin = `${baseUrl}${profile}${handleLogin}`;
+            const redirectUrlLogin = `${baseUrl}${profile}${handleLogin}/`;
 
             chrome.tabs.update(tabId, { url: redirectUrlLogin });
           }
@@ -176,7 +176,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
           if (matchTagged) {
             const handleTagged = matchTagged[1];
-            const redirectUrlTagged = `${baseUrl}${profileTagged}${handleTagged}`;
+            const redirectUrlTagged = `${baseUrl}${profileTagged}${handleTagged}/`;
 
             chrome.tabs.update(tabId, { url: redirectUrlTagged });
           }
@@ -188,7 +188,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
           if (matchTaggedLogin) {
             const handleTaggedLogin = matchTaggedLogin[1];
-            const redirectUrlTaggedLogin = `${baseUrl}${profileTagged}${handleTaggedLogin}`;
+            const redirectUrlTaggedLogin = `${baseUrl}${profileTagged}${handleTaggedLogin}/`;
 
             chrome.tabs.update(tabId, { url: redirectUrlTaggedLogin });
           }
@@ -200,7 +200,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
           if (matchTaggedCoigLogin) {
             const handleTaggedCoigLogin = matchTaggedCoigLogin[1];
-            const redirectUrlTaggedCoigLogin = `${baseUrl}${profileTagged}${handleTaggedCoigLogin}`;
+            const redirectUrlTaggedCoigLogin = `${baseUrl}${profileTagged}${handleTaggedCoigLogin}/`;
 
             chrome.tabs.update(tabId, { url: redirectUrlTaggedCoigLogin });
           }
@@ -214,7 +214,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           if (matchStoryLogin) {
             baseUrl = 'https://imginn.com';
             const handleStoryLogin = matchStoryLogin[1];
-            const redirectUrlStoryLogin = `${baseUrl}/stories/${handleStoryLogin}`;
+            const redirectUrlStoryLogin = `${baseUrl}/stories/${handleStoryLogin}/`;
 
             chrome.tabs.update(tabId, { url: redirectUrlStoryLogin });
           }
@@ -229,7 +229,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           if (matchTags) {
             baseUrl = 'https://picuki.com';
             const tagName = matchTags[1];
-            const redirectUrlTags = `${baseUrl}/tag/${tagName}`;
+            const redirectUrlTags = `${baseUrl}/tag/${tagName}/`;
 
             chrome.tabs.update(tabId, { url: redirectUrlTags });
           }
@@ -295,7 +295,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             isNotProfile &&
             !matchLongCode
           ) {
-            const redirectTTUrl = `${baseUrlTT}${profile}${handleProfileTT}${slash}`;
+            const redirectTTUrl = `${baseUrlTT}${profile}${handleProfileTT}${slash}/`;
 
             chrome.tabs.update(tabId, { url: redirectTTUrl });
           }
