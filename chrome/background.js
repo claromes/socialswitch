@@ -295,7 +295,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             isNotProfile &&
             !matchLongCode
           ) {
-            const redirectTTUrl = `${baseUrlTT}${profile}${handleProfileTT}${slash}/`;
+            const redirectTTUrl = `${baseUrlTT}${profile}${handleProfileTT}${slash}`;
 
             chrome.tabs.update(tabId, { url: redirectTTUrl });
           }

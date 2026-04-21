@@ -99,7 +99,7 @@ browser.webRequest.onBeforeRequest.addListener(
               // https://instagram.com/<handle>
               // https://instagram.com/<handle>/
               // https://instagram.com/<handle>/?hl=en
-              const redirectUrl = `${baseUrl}${profile}${handleProfile}`;
+              const redirectUrl = `${baseUrl}${profile}${handleProfile}/`;
 
               browser.tabs.update(details.tabId, { url: redirectUrl });
             } else if (handleProfile === 'p' || handleProfile === 'reel') {
@@ -118,7 +118,7 @@ browser.webRequest.onBeforeRequest.addListener(
               if (matchPost || matchPostReel) {
                 baseUrl = 'https://imginn.com';
                 const postCode = matchPost ? matchPost[1] : matchPostReel[1];
-                const redirectUrlPost = `${baseUrl}/p/${postCode}`;
+                const redirectUrlPost = `${baseUrl}/p/${postCode}/`;
 
                 browser.tabs.update(details.tabId, { url: redirectUrlPost });
               }
@@ -161,7 +161,7 @@ browser.webRequest.onBeforeRequest.addListener(
               if (matchStory) {
                 baseUrl = 'https://imginn.com';
                 const handleStory = matchStory[1];
-                const redirectUrlStory = `${baseUrl}/stories/${handleStory}`;
+                const redirectUrlStory = `${baseUrl}/stories/${handleStory}/`;
 
                 browser.tabs.update(details.tabId, { url: redirectUrlStory });
               }
@@ -174,7 +174,7 @@ browser.webRequest.onBeforeRequest.addListener(
 
             if (matchLogin) {
               const handleLogin = matchLogin[1];
-              const redirectUrlLogin = `${baseUrl}${profile}${handleLogin}`;
+              const redirectUrlLogin = `${baseUrl}${profile}${handleLogin}/`;
 
               browser.tabs.update(details.tabId, { url: redirectUrlLogin });
             }
@@ -187,7 +187,7 @@ browser.webRequest.onBeforeRequest.addListener(
 
             if (matchTagged) {
               const handleTagged = matchTagged[1];
-              const redirectUrlTagged = `${baseUrl}${profileTagged}${handleTagged}`;
+              const redirectUrlTagged = `${baseUrl}${profileTagged}${handleTagged}/`;
 
               browser.tabs.update(details.tabId, { url: redirectUrlTagged });
             }
@@ -247,7 +247,7 @@ browser.webRequest.onBeforeRequest.addListener(
             if (matchTags) {
               baseUrl = 'https://picuki.com';
               const tagName = matchTags[1];
-              const redirectUrlTags = `${baseUrl}/tag/${tagName}`;
+              const redirectUrlTags = `${baseUrl}/tag/${tagName}/`;
 
               browser.tabs.update(details.tabId, { url: redirectUrlTags });
             }
