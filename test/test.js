@@ -21,7 +21,9 @@ const ig_profile = [
   'https://instagram.com/instagram',
   'https://instagram.com/instagram/',
   'https://instagram.com/instagram/?hl=en',
-  'https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Finstagram%2F'
+  'https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Finstagram%2F',
+  'https://www.instagram.com/accounts/login/?next=%2Finstagram%2F&source=omni_redirect',
+  'https://www.instagram.com/accounts/login/?next=%2Finstagram%2F&source=omni_redirect&?hl=en'
 ];
 
 const ig_tagged = [

@@ -168,6 +168,17 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             chrome.tabs.update(tabId, { url: redirectUrlLogin });
           }
 
+          // https://www.instagram.com/accounts/login/?next=%2F<handle>%2F&source=omni_redirect
+          const regexLoginOmni = /^https:\/\/www\.instagram\.com\/accounts\/login\/\?next=%2F([^%]+)%2F/;
+          const matchLoginOmni = tab.url.match(regexLoginOmni);
+
+          if (matchLoginOmni) {
+            const handleLoginOmni = matchLoginOmni[1];
+            const redirectUrlLoginOmni = `${baseUrl}${profile}${handleLoginOmni}/`;
+
+            chrome.tabs.update(tabId, { url: redirectUrlLoginOmni });
+          }
+
           // https://instagram.com/<handle>/tagged
           // https://instagram.com/<handle>/tagged/*
           const regexTagged =
