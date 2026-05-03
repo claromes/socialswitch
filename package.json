@@ -1,6 +1,6 @@
 {
   "name": "socialswitch",
-  "version": "1.x",
+  "version": "2.x",
   "description": "Redirect Instagram and TikTok URLs to anonymous viewers",
   "type": "module",
   "main": "test/test.js",

@@ -47,7 +47,10 @@ const ig_post = [
   'https://www.instagram.com/reel/CwX31XMMYAV/?hl=en',
   'https://www.instagram.com/instagram/reel/CwX31XMMYAV',
   'https://www.instagram.com/instagram/reel/CwX31XMMYAV/',
-  'https://www.instagram.com/instagram/reel/CwX31XMMYAV/?hl=en'
+  'https://www.instagram.com/instagram/reel/CwX31XMMYAV/?hl=en',
+  'https://www.instagram.com/reels/DXzoo-qvZb0',
+  'https://www.instagram.com/reels/DXzoo-qvZb0/',
+  'https://www.instagram.com/reels/DXzoo-qvZb0/?hl=en'
 ];
 
 const ig_stories = [
