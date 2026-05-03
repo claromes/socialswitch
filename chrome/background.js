@@ -44,7 +44,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     ['switchStateIG', 'selectedOptionIG'],
     function (result) {
       switchStateIG = result.switchStateIG || false;
-      selectedOptionIG = result.selectedOptionIG || 'picuki';
+      selectedOptionIG = result.selectedOptionIG || 'pixnoy';
 
       // Set storage option
       chrome.storage.local.set({
@@ -55,8 +55,8 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
       if (!switchStateIG) {
         let baseUrl;
 
-        if (selectedOptionIG === 'picuki') {
-          baseUrl = 'https://picuki.com';
+        if (selectedOptionIG === 'pixnoy') {
+          baseUrl = 'https://pixnoy.com';
         } else if (selectedOptionIG === 'imginn') {
           baseUrl = 'https://imginn.com';
         }
@@ -64,14 +64,12 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         // https://www.instagram.com/*
         if (tab.url && tab.url.startsWith('https://www.instagram.com/')) {
           let profile;
-          let profileTagged;
+          const profileTagged = '/tagged/';
 
-          if (baseUrl.includes('picuki')) {
+          if (baseUrl.includes('pixnoy')) {
             profile = '/profile/';
-            profileTagged = '/profile-tagged/';
           } else if (baseUrl.includes('imginn')) {
             profile = '/';
-            profileTagged = '/tagged/';
           }
 
           const handleProfile = tab.url.split('/')[3];
@@ -82,11 +80,13 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             handleProfile !== 'p' &&
             handleProfileWithPost !== 'p' &&
             handleProfileWithPost !== 'reel' &&
+            handleProfileWithPost !== 'reels' &&
             handleProfile !== 'stories' &&
             handleProfile !== 's' &&
             handleProfile !== 'reel' &&
             handleProfile !== 'tv' &&
-            handleProfile !== 'explore'
+            handleProfile !== 'explore' &&
+            handleProfile !== 'popular'
           ) {
             // https://instagram.com/<handle>
             // https://instagram.com/<handle>/
@@ -100,10 +100,12 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             // https://www.instagram.com/p/<short_code>/*
             // https://www.instagram.com/reel/<short_code>
             // https://www.instagram.com/reel/<short_code>/*
+            // https://www.instagram.com/reels/<short_code>
+            // https://www.instagram.com/reels/<short_code>/*
             const regexPost =
               /https:\/\/www\.instagram\.com\/p\/([A-Za-z0-9_-]+)\//;
             const regexPostReel =
-              /https:\/\/www\.instagram\.com\/reel\/([A-Za-z0-9_-]+)\//;
+              /https:\/\/www\.instagram\.com\/reels?\/([A-Za-z0-9_-]+)\//;
             const matchPost = tab.url.match(regexPost);
             const matchPostReel = tab.url.match(regexPostReel);
 
@@ -116,17 +118,20 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             }
           } else if (
             handleProfileWithPost === 'p' ||
-            handleProfileWithPost === 'reel'
+            handleProfileWithPost === 'reel' ||
+            handleProfileWithPost === 'reels'
           ) {
             // Only Imginn
             // https://www.instagram.com/<handle>/p/<short_code>
             // https://www.instagram.com/<handle>/p/<short_code>/*
             // https://www.instagram.com/<handle>/reel/<short_code>
             // https://www.instagram.com/<handle>/reel/<short_code>/*
+            // https://www.instagram.com/<handle>/reels/<short_code>
+            // https://www.instagram.com/<handle>/reels/<short_code>/*
             const regexHandlePost =
               /^https:\/\/www\.instagram\.com\/[^/]+\/p\/([^/?]+)/;
             const regexHandlePostReel =
-              /^https:\/\/www\.instagram\.com\/[^/]+\/reel\/([^/?]+)/;
+              /^https:\/\/www\.instagram\.com\/[^/]+\/reels?\/([^/?]+)/;
             const matchHandlePost = tab.url.match(regexHandlePost);
             const matchHandlePostReel = tab.url.match(regexHandlePostReel);
 
@@ -187,7 +192,11 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
           if (matchTagged) {
             const handleTagged = matchTagged[1];
-            const redirectUrlTagged = `${baseUrl}${profileTagged}${handleTagged}/`;
+            let redirectUrlTagged = `${baseUrl}${profileTagged}${handleTagged}/`;
+
+            if (baseUrl.includes('pixnoy')) {
+              redirectUrlTagged = `${baseUrl}${profile}${handleTagged}${profileTagged}`;
+            }
 
             chrome.tabs.update(tabId, { url: redirectUrlTagged });
           }
@@ -199,7 +208,11 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
           if (matchTaggedLogin) {
             const handleTaggedLogin = matchTaggedLogin[1];
-            const redirectUrlTaggedLogin = `${baseUrl}${profileTagged}${handleTaggedLogin}/`;
+            let redirectUrlTaggedLogin = `${baseUrl}${profileTagged}${handleTaggedLogin}/`;
+
+            if (baseUrl.includes('pixnoy')) {
+              redirectUrlTaggedLogin = `${baseUrl}${profile}${handleTaggedLogin}${profileTagged}`;
+            }
 
             chrome.tabs.update(tabId, { url: redirectUrlTaggedLogin });
           }
@@ -211,7 +224,11 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
           if (matchTaggedCoigLogin) {
             const handleTaggedCoigLogin = matchTaggedCoigLogin[1];
-            const redirectUrlTaggedCoigLogin = `${baseUrl}${profileTagged}${handleTaggedCoigLogin}/`;
+            let redirectUrlTaggedCoigLogin = `${baseUrl}${profileTagged}${handleTaggedCoigLogin}/`;
+
+            if (baseUrl.includes('pixnoy')) {
+              redirectUrlTaggedCoigLogin = `${baseUrl}${profile}${handleTaggedCoigLogin}${profileTagged}`;
+            }
 
             chrome.tabs.update(tabId, { url: redirectUrlTaggedCoigLogin });
           }
@@ -228,21 +245,6 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             const redirectUrlStoryLogin = `${baseUrl}/stories/${handleStoryLogin}/`;
 
             chrome.tabs.update(tabId, { url: redirectUrlStoryLogin });
-          }
-
-          // Only Picuki
-          // https://www.instagram.com/explore/tags/<tag_name>
-          // https://www.instagram.com/explore/tags/<tag_name>/*
-          const regexTags =
-            /^https:\/\/www\.instagram\.com\/explore\/tags\/([^/]+)/;
-          const matchTags = tab.url.match(regexTags);
-
-          if (matchTags) {
-            baseUrl = 'https://picuki.com';
-            const tagName = matchTags[1];
-            const redirectUrlTags = `${baseUrl}/tag/${tagName}/`;
-
-            chrome.tabs.update(tabId, { url: redirectUrlTags });
           }
         }
       }
