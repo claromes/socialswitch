@@ -45,7 +45,7 @@ browser.webRequest.onBeforeRequest.addListener(
       ['switchStateIG', 'selectedOptionIG'],
       function (result) {
         switchStateIG = result.switchStateIG || false;
-        selectedOptionIG = result.selectedOptionIG || 'picuki';
+        selectedOptionIG = result.selectedOptionIG || 'pixnoy';
 
         // Set storage option
         browser.storage.local.set({
@@ -56,8 +56,8 @@ browser.webRequest.onBeforeRequest.addListener(
         if (!switchStateIG) {
           let baseUrl;
 
-          if (selectedOptionIG === 'picuki') {
-            baseUrl = 'https://picuki.com';
+          if (selectedOptionIG === 'pixnoy') {
+            baseUrl = 'https://pixnoy.com';
           } else if (selectedOptionIG === 'imginn') {
             baseUrl = 'https://imginn.com';
           }
@@ -87,11 +87,14 @@ browser.webRequest.onBeforeRequest.addListener(
               handleProfile !== 'p' &&
               handleProfileWithPost !== 'p' &&
               handleProfileWithPost !== 'reel' &&
+              handleProfileWithPost !== 'reels' &&
               handleProfile !== 'stories' &&
               handleProfile !== 's' &&
               handleProfile !== 'reel' &&
               handleProfile !== 'tv' &&
               handleProfile !== 'explore' &&
+              handleProfile !== 'popular' &&
+              handleProfile !== 'data' &&
               // Firefox redirection issue (#14)
               handleProfile !== 'ajax' &&
               // Firefox redirection issue (#21)
@@ -126,7 +129,8 @@ browser.webRequest.onBeforeRequest.addListener(
               }
             } else if (
               handleProfileWithPost === 'p' ||
-              handleProfileWithPost === 'reel'
+              handleProfileWithPost === 'reel' ||
+              handleProfileWithPost === 'reels'
             ) {
               // Only Imginn
               // https://www.instagram.com/<handle>/p/<short_code>
@@ -136,7 +140,7 @@ browser.webRequest.onBeforeRequest.addListener(
               const regexHandlePost =
                 /^https:\/\/www\.instagram\.com\/[^/]+\/p\/([^/?]+)/;
               const regexHandlePostReel =
-                /^https:\/\/www\.instagram\.com\/[^/]+\/reel\/([^/?]+)/;
+                /^https:\/\/www\.instagram\.com\/[^/]+\/reels?\/([^/?]+)/;
               const matchHandlePost = details.url.match(regexHandlePost);
               const matchHandlePostReel =
                 details.url.match(regexHandlePostReel);
