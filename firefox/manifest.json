@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Social Switch: Anonymous Instagram and TikTok",
-  "version": "1.2",
+  "version": "2.0",
   "description": "Redirect Instagram and TikTok URLs to anonymous viewers",
   "homepage_url": "https://github.com/claromes/socialswitch",
   "author": "Claromes",
@@ -29,13 +29,20 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*.instagram.com/*", "*://*.tiktok.com/*"],
-      "js": ["popup.js"],
+      "matches": [
+        "*://*.instagram.com/*",
+        "*://*.tiktok.com/*"
+      ],
+      "js": [
+        "popup.js"
+      ],
       "run_at": "document_start"
     }
   ],
   "background": {
-    "scripts": ["background.js"]
+    "scripts": [
+      "background.js"
+    ]
   },
   "browser_specific_settings": {
     "gecko": {

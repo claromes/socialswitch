@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Storage redirection
-  browser.storage.sync.get({ selectedOptionIG: 'picuki' }, function (data) {
+  browser.storage.sync.get({ selectedOptionIG: 'pixnoy' }, function (data) {
     const selectedOptionIG = data.selectedOptionIG;
     document.querySelector(`input[value="${selectedOptionIG}"]`).checked = true;
   });

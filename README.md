@@ -5,15 +5,15 @@
 
 Redirect Instagram and TikTok URLs to anonymous viewers. Access any profile, posts, tagged posts, stories profile or tags on Instagram or any profile on TikTok and the extension will redirect automatically to web viewers.
 
-From **Instagram** URLs to **Picuki.com** or **Imginn.com**, and from **TikTok** URLs to **UrleBird.com** or **Xaller.com**.
+From **Instagram** URLs to **Pixnoy.com** or **Imginn.com**, and from **TikTok** URLs to **UrleBird.com** or **Xaller.com**.
 
 ## Note
 
 For those seeking an alternative redirection for open-source instances, I recommend using the LibRedirect extension. The Social Switch extension aims to streamline access to web viewers that are more stable and facilitate the download of assets from both Instagram and TikTok. It targets users who prefer these anonymous but closed-source platforms.
 
-It's necessary to add that despite being anonymous for accessing Instagram and TikTok, the web services Picuki, Imginn, UrleBird, and Xaller are commercial and may track users. For this reason, it is recommended to use these services with VPNs, ad blockers, and other methods to inhibit trackers.
+It's necessary to add that despite being anonymous for accessing Instagram and TikTok, the web services Pixnoy, Imginn, UrleBird, and Xaller are commercial and may track users. For this reason, it is recommended to use these services with VPNs, ad blockers, and other methods to inhibit trackers.
 
-This extension is not affiliated with Instagram, TikTok, Picuki, Imginn, UrleBird, and Xaller and does not take responsibility for any actions of these web services.
+This extension is not affiliated with Instagram, TikTok, Pixnoy, Imginn, UrleBird, and Xaller and does not take responsibility for any actions of these web services.
 
 ## Installation
 
@@ -52,7 +52,7 @@ Select a viewer option and enable or disable redirection through the popup.
 
 ![Social Switch Popup](assets/popup.jpg 'Social Switch Popup')
 
-For Instagram post URLs (`instagram.com/p/short_code`) and Instagram stories profile URLs (`instagram.com/stories/handle`), regardless of the redirection option, the extension will redirect to Imginn.com. This viewer uses the original post short code, and it has the option to view only stories via URL. However, for tag URLs (`instagram.com/explore/tags/tag_name`), irrespective of the redirection option, the extension will redirect to Picuki.com, as only this viewer supports tag search.
+For Instagram post URLs (`instagram.com/p/short_code`) and Instagram stories profile URLs (`instagram.com/stories/handle`), regardless of the redirection option, the extension will redirect to Imginn.com. This viewer uses the original post short code, and it has the option to view only stories via URL. However, for tag URLs (`instagram.com/explore/tags/tag_name`), irrespective of the redirection option, the extension will redirect to Pixnoy.com, as only this viewer supports tag search.
 
 ### Supported URLs
 
@@ -71,8 +71,6 @@ For Instagram post URLs (`instagram.com/p/short_code`) and Instagram stories pro
   `instagram.com/reel/short_code` _(only Imginn)_
 
   `instagram.com/handle/reel/short_code` _(only Imginn)_
-
-  `instagram.com/explore/tags/tag_name` _(only Picuki)_
 
 - TikTok:
 

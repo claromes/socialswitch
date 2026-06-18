@@ -45,7 +45,7 @@ browser.webRequest.onBeforeRequest.addListener(
       ['switchStateIG', 'selectedOptionIG'],
       function (result) {
         switchStateIG = result.switchStateIG || false;
-        selectedOptionIG = result.selectedOptionIG || 'picuki';
+        selectedOptionIG = result.selectedOptionIG || 'pixnoy';
 
         // Set storage option
         browser.storage.local.set({
@@ -56,8 +56,8 @@ browser.webRequest.onBeforeRequest.addListener(
         if (!switchStateIG) {
           let baseUrl;
 
-          if (selectedOptionIG === 'picuki') {
-            baseUrl = 'https://picuki.com';
+          if (selectedOptionIG === 'pixnoy') {
+            baseUrl = 'https://pixnoy.com';
           } else if (selectedOptionIG === 'imginn') {
             baseUrl = 'https://imginn.com';
           }
@@ -87,19 +87,24 @@ browser.webRequest.onBeforeRequest.addListener(
               handleProfile !== 'p' &&
               handleProfileWithPost !== 'p' &&
               handleProfileWithPost !== 'reel' &&
+              handleProfileWithPost !== 'reels' &&
               handleProfile !== 'stories' &&
               handleProfile !== 's' &&
               handleProfile !== 'reel' &&
               handleProfile !== 'tv' &&
               handleProfile !== 'explore' &&
-              // Firefox redirection issue
+              handleProfile !== 'popular' &&
+              handleProfile !== 'data' &&
+              // Firefox redirection issue (#14)
               handleProfile !== 'ajax' &&
+              // Firefox redirection issue (#21)
+              handleProfile !== 'graphql' &&
               !pathSegment.includes('bz?')
             ) {
               // https://instagram.com/<handle>
               // https://instagram.com/<handle>/
               // https://instagram.com/<handle>/?hl=en
-              const redirectUrl = `${baseUrl}${profile}${handleProfile}`;
+              const redirectUrl = `${baseUrl}${profile}${handleProfile}/`;
 
               browser.tabs.update(details.tabId, { url: redirectUrl });
             } else if (handleProfile === 'p' || handleProfile === 'reel') {
@@ -118,13 +123,14 @@ browser.webRequest.onBeforeRequest.addListener(
               if (matchPost || matchPostReel) {
                 baseUrl = 'https://imginn.com';
                 const postCode = matchPost ? matchPost[1] : matchPostReel[1];
-                const redirectUrlPost = `${baseUrl}/p/${postCode}`;
+                const redirectUrlPost = `${baseUrl}/p/${postCode}/`;
 
                 browser.tabs.update(details.tabId, { url: redirectUrlPost });
               }
             } else if (
               handleProfileWithPost === 'p' ||
-              handleProfileWithPost === 'reel'
+              handleProfileWithPost === 'reel' ||
+              handleProfileWithPost === 'reels'
             ) {
               // Only Imginn
               // https://www.instagram.com/<handle>/p/<short_code>
@@ -134,7 +140,7 @@ browser.webRequest.onBeforeRequest.addListener(
               const regexHandlePost =
                 /^https:\/\/www\.instagram\.com\/[^/]+\/p\/([^/?]+)/;
               const regexHandlePostReel =
-                /^https:\/\/www\.instagram\.com\/[^/]+\/reel\/([^/?]+)/;
+                /^https:\/\/www\.instagram\.com\/[^/]+\/reels?\/([^/?]+)/;
               const matchHandlePost = details.url.match(regexHandlePost);
               const matchHandlePostReel =
                 details.url.match(regexHandlePostReel);
@@ -161,7 +167,7 @@ browser.webRequest.onBeforeRequest.addListener(
               if (matchStory) {
                 baseUrl = 'https://imginn.com';
                 const handleStory = matchStory[1];
-                const redirectUrlStory = `${baseUrl}/stories/${handleStory}`;
+                const redirectUrlStory = `${baseUrl}/stories/${handleStory}/`;
 
                 browser.tabs.update(details.tabId, { url: redirectUrlStory });
               }
@@ -174,9 +180,20 @@ browser.webRequest.onBeforeRequest.addListener(
 
             if (matchLogin) {
               const handleLogin = matchLogin[1];
-              const redirectUrlLogin = `${baseUrl}${profile}${handleLogin}`;
+              const redirectUrlLogin = `${baseUrl}${profile}${handleLogin}/`;
 
               browser.tabs.update(details.tabId, { url: redirectUrlLogin });
+            }
+
+            // https://www.instagram.com/accounts/login/?next=%2F<handle>%2F&source=omni_redirect
+            const regexLoginOmni = /^https:\/\/www\.instagram\.com\/accounts\/login\/\?next=%2F([^%]+)%2F/;
+            const matchLoginOmni = details.url.match(regexLoginOmni);
+
+            if (matchLoginOmni) {
+              const handleLoginOmni = matchLoginOmni[1];
+              const redirectUrlLoginOmni = `${baseUrl}${profile}${handleLoginOmni}/`;
+
+              browser.tabs.update(details.tabId, { url: redirectUrlLoginOmni });
             }
 
             // https://instagram.com/<handle>/tagged
@@ -187,7 +204,7 @@ browser.webRequest.onBeforeRequest.addListener(
 
             if (matchTagged) {
               const handleTagged = matchTagged[1];
-              const redirectUrlTagged = `${baseUrl}${profileTagged}${handleTagged}`;
+              const redirectUrlTagged = `${baseUrl}${profileTagged}${handleTagged}/`;
 
               browser.tabs.update(details.tabId, { url: redirectUrlTagged });
             }
@@ -247,7 +264,7 @@ browser.webRequest.onBeforeRequest.addListener(
             if (matchTags) {
               baseUrl = 'https://picuki.com';
               const tagName = matchTags[1];
-              const redirectUrlTags = `${baseUrl}/tag/${tagName}`;
+              const redirectUrlTags = `${baseUrl}/tag/${tagName}/`;
 
               browser.tabs.update(details.tabId, { url: redirectUrlTags });
             }
